@@ -1,0 +1,170 @@
+*{
+    margin:0;
+    padding: 0
+}
+html, body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100%;
+    
+}
+body{
+    background-color: lightcyan;
+}
+a, ul, li{
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.wrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+nav{
+    background-color: #14AF22;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+   
+}
+
+nav>h1{
+    text-transform: uppercase;
+    margin: 10px;
+    font-size: 32px;
+    color: white;
+}
+.nav-list-container{
+    width: 100%;
+    height:60px;
+  
+}
+.nav-list-container ul li{
+    display: inline-block;
+    line-height: 4em;
+    margin: 0 25px;
+}
+.nav-list-container a{
+    color: white;
+}
+
+.content-container{
+    width: 100%;
+    height: 100%;
+    /* display: grid;
+    grid-template-areas: 
+    "cont cont"
+    "activity activity"
+    ;
+    grid-template-columns: 1fr, 1fr;
+    grid-template-rows:1fr 1fr; */
+
+    flex: 1;
+}
+
+.signupform{
+    width: 80%;
+    height:450px;
+    background-color:white;
+    margin: 90px auto;
+    border: 2px solid #14AF22;
+    border-radius: 9px;
+
+}
+
+.signupform .form-wrapper{
+    width: 80%;
+    height:90%;
+    margin: 20px auto;
+    
+    
+}
+.form-wrapper input{
+    width:100%;
+    height:40px;
+    margin: 10px auto;
+    
+}
+
+.btn{
+    width:85%;
+    height: 20px;
+    padding: 10px;
+    background-color: white;
+    border: #B2F2B8 2px solid;
+    margin: 10px auto;
+    text-align: center;
+    line-height: 1em;
+    font-weight:30px;
+    
+}
+
+
+.btn a{
+    display: block;
+    color: white;
+}
+
+.btn:hover{
+    background-color: green;
+    color: white;
+}
+
+#signup-link{
+    width: 90%;
+    background-color: lightblue;
+    margin:0 auto;
+    text-align: center;
+    border-radius: 8px;
+}
+
+#signup-link p{
+    font-size: 14px;
+    display: inline-block;
+    
+}
+
+footer{
+    margin-top: 10px;
+    height: 50px;
+    color: white;
+    line-height: 2em;
+    text-align: center;
+    background-color: #14AF22;
+}
+
+@media only screen and (min-width:767px){
+
+    .content-container{
+    
+    }
+   
+    .content-container .signupform{
+        
+        width: 58%;
+        height:550px;
+       
+    }
+    .form-wrapper input{
+        width:100%;
+        height:50px;
+        margin: 15px auto;
+        
+    }
+    
+
+}
+
+@media only screen and (min-width:1024px){
+   
+    .content-container .signupform{
+        
+        width: 35%;
+        height:551px;
+       
+    }
+    
+    
+
+}
+
