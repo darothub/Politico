@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const showSignUp=()=>{
     let form2 = document.getElementById("form-wrap2")
     let form1 = document.getElementById("form-wrap1")
@@ -47,3 +48,30 @@ const showSignIn=()=>{
     
     return false
 }
+=======
+
+let signIn = document.getElementById("signin-link")
+let signUp = document.getElementById("signup-link")
+
+signIn.addEventListener('click', (e)=>{
+    let signInBackground = document.getElementById("signin-form-background");
+
+    if(signInBackground.style.display === "block"){
+        signInBackground.style.display = "none"
+        return false
+    }
+    signInBackground.style.display = "block";
+    e.preventDefault()
+});
+
+signUp.addEventListener('click', (e)=>{
+    let signInBackground = document.getElementById("signin-form-background");
+
+    if(signInBackground.style.display === "block"){
+        signInBackground.style.display = "none"
+        return false
+    }
+    signInBackground.style.display = "block";
+    e.preventDefault()
+});
+>>>>>>> sigin-page
