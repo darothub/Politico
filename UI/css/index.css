@@ -176,6 +176,14 @@ footer{
         grid-area: nav;
         
     }
+    nav>h1{
+        float: left;
+    }
+    nav>.nav-list-container{
+        float:right;
+        width: 50%;
+        margin-right: -50px;
+    }
     .content-container{
         grid-area: content;
     }
@@ -245,6 +253,11 @@ footer{
     nav{
         grid-area: nav;
         
+    }
+    nav>.nav-list-container{
+        float:right;
+        width: 50%;
+        margin-right: -100px;
     }
     .content-container{
         grid-area: content;

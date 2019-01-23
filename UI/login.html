@@ -4,70 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/login.css">
-    <title>Politico | log in</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <title>Politico|Login</title>
 </head>
 <body>
     <section class="wrapper">
-            <nav>
-                <h1>Politico</h1>
-                <div class="nav-list-container">
-                        
-                    <ul>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Polls</a></li>
-                        <li><a href="#">Sign up</a></li>
-                    </ul>
-                </div>
-            
-            </nav>
-            <section class="content-container">
-                <section class="signform">
-                        <div class="form-wrapper" id="wrap">
-                            <form>
-                                <input type="text" placeholder="your name" id="name" class="input">
-                                <input type="text" placeholder="user name" id="username" class="input">
-                                <input type="email" placeholder="you@example.com" id="email" class="input">
-                                <input type="password" placeholder="Enter your password" id="password" class="input">
-                                <input type="password" placeholder="Confirm your password" id="password" class="input">
-                                <div class="btn"><a href="user.html" id="enter">Sign up</a></div>
-
-                            </form>
-                            <div class="sign-link" id="signin-link">
-                                <p>Already a user?</p> <p>Sign in <a href="#" id="signin" onclick="openLoginPage(); return false">here</a></p>
-                            </div>
-                        </div>
-                </section>
-                <section class="signform" id="signin-form-background">
-                    <div class="signform" id="signin-form">
-                        <div class="form-wrapper" id="wrap">
-                            <form>
-                                <input type="email" placeholder="you@example.com" id="email" class="input">
-                                <input type="password" placeholder="Enter your password" id="password" class="input">
-                                <div class="btn"><a href="user.html" id="enter">Sign in</a></div>
-
-                            </form>
-                            <div class="sign-link" id="signup-link">
-                                <p>New user?</p> <p>Sign up <a href="#" onclick="openSignupPage(); return false">here</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </section>            
+        <nav>
+            <h1>Politico</h1>
+            <div class="nav-list-container">
                     
+                <ul>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Sign in</a></li>
+                </ul>
+            </div>
         
-            
-            <footer>
-                <div class="footer-wrapper">
-                    Darot &copy;
+        </nav>
+        <section class="content-container">
+            <section class="loginform">
+                <div class="login-avatar">
+                    <img src="./images/account.gif" alt="avatar">
                 </div>
-                
-            </footer>
+                <div class="form-wrapper" id="form-wrap1">
+                    <h3>Sign in here</h3>
+                    <form>
+                        <label id="username-label">Username</label><br>
+                        <input type="text" placeholder="username" id="username" class="input">
+                        <label id="password-label">Password</label>
+                        <input type="password" placeholder="Enter the password" id="password" class="input"><br>
+                        <input type="checkbox" id="checkbox"><p id="checkbox-label">Remember me</p>
+                        <div class="btn"><a href="user.html" id="enter">Sign in</a></div>
+                        <div class="btn"><a href="#" id="signup-form1" onclick="showSignUp(); return false">Sign up</a></div>
+                    </form>
+                </div>
+                <div class="form-wrapper" id="form-wrap2">
+                    <h3>Sign up here</h3>
+                    <form>
+                        <label id="username-label">Username</label><br>
+                        <input type="text" placeholder="username" id="username" class="input">
+                        <label id="password-label">Password</label>
+                        <input type="password" placeholder="Enter the password" id="password" class="input"><br>
+                        <label id="cpassword-label">Confirm password</label>
+                        <input type="password" placeholder="Enter the password" id="password" class="input"><br>
+                        <input type="checkbox" id="checkbox"><p id="checkbox-label">Remember me</p>
+                        <div class="btn"><a href="#" id="enter">Sign up</a></div>
+                        <div class="btn"><a href="#" id="loginreturn" onclick="showSignin(); return false">  Sign in</a></div>
+                        
+                        
+                    </form>
+                    
+                </div>
+            </section>
+            <div class="activities-container">
+                <div id="activities" >
+                    <h2 id="signin-title"></h2>
+
+                </div>
+
+            </div>
+            
+        </section>
+        <footer>
+            <div class="footer-wrapper">
+                Darot &copy;
+            </div>
+            
+        </footer>
     </section>
-
-
-
 <script src="/UI/js/login.js"></script>
-    
+   
 </body>
 </html>
