@@ -23,6 +23,7 @@ a, ul, li{
     height: 0%;
     flex: 1;
     margin-bottom: 0px;
+
     
 }
 nav{
@@ -66,11 +67,15 @@ nav>.nav-list-container{
     width: 90%;
     height: auto;
     margin: 10px auto;
-    background-color: white;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: "avatar avatar"
-                         "form-wrapper form-wrapper"
+                         "form-wrapper form-wrapper";
+                         background: linear-gradient(#B2F2B8, rgba(199, 241, 193, 0.5)), url("../images/nigflag.jpg");
+                         background-size: cover;
+                         background-repeat:no-repeat;
+                         background-position: center;
+                        
 }
 .login-avatar{
     grid-area: avatar;
@@ -130,6 +135,10 @@ nav>.nav-list-container{
     margin-top:15px;
     float: left;
     font-size: 12px;
+}
+
+.form-wrapper h3{
+    margin-left: 8px;
 }
 .btn{
     width:auto;
@@ -193,10 +202,11 @@ footer{
         "activity activity cont cont"
         ;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows:1fr; 
+        grid-template-rows:1fr;
+       
 
     }
-  
+       
 
     .activities-container{
         grid-area: activity;

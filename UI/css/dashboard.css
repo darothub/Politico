@@ -95,7 +95,6 @@ nav>h1{
     height: 100%;
     background-color: white;
     position: absolute;
-    display: none;
     top: 10%; 
 }
 .menu-list ul{
@@ -118,7 +117,7 @@ nav>h1{
     font-size: 20px;
     text-transform: uppercase;
     margin-left: 0px;
-    color: #000;
+    color: white;
 }
 
 .menu-list #close{
@@ -146,6 +145,7 @@ nav>h1{
 }
 
 
+
 .content{
     grid-area: cont;
     height:auto;
@@ -165,38 +165,82 @@ nav>h1{
     height:auto;   
 }
 
-#dashboard-details, #personal-details{
-    width: 90%;
-    height: auto;
-    background-color: rgba(0,0,0,.4);
-    font-size: 16px;
+#content-list div{
+    width: 60%;
+    height: 50px;
     margin: 20px auto;
+    margin-bottom: -10px;
+    padding: 5px;
+    background-color: #B2F2B8;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 2px 3px 5px 3px;
+    text-align: center;
    
 }
-#dashboard-details-left, #personal-details-left{
-   display: inline-block;
-   margin-left: 10px;
-   margin-top: -20px;
-   padding-top: 15px;
-}
-#dashboard-details-left li, #dashboard-details-right li, #personal-details-left li, #personal-details-right li{
-    margin-top: 30px;
-    margin-bottom: 30px;
- }
 
- #dashboard-details-right, #personal-details-right{
-    display: inline-block;
+#content-list a{
+   
+   color: #14AF22;
+   font-weight: bold;
+   font-size:18px;
+   text-transform: uppercase;
+}
+#plus-sign-container{
     float: right;
-    margin-right: 20px;
-    margin-top: -20px;
-    padding-top: 15px;
- }
+    margin-right: 30px;
+    margin-top: -32px;
+    height: 30px;
+    width: 120px;
+    padding: 5px;
+}
+#plus-sign-container a{
+    display: block;
+    cursor: pointer;
+}
+#plus-sign-container p{
+    display: none;
+    position: relative;
+    right:0px;
+    top: -10px;
+    background-color: #B2F2B8;
+    font-size: 13px;
+    color:#000;
+    
+}
+
+#plus-sign-container:hover p{
+    display: block; 
+}
+#plus-sign-container img{
+    float:right;
+    width: 25px;
+    
+}
 #profile-avatar{
     width: 150px;
     height: 130px;
     background-color: white;
     margin: 15px auto;
-    border-radius: 50%;
+}
+
+#profile-details{
+    width: auto;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: -9px auto;
+  
+
+}
+
+#profile-details ul{
+    width:auto;
+    height: auto;
+    display: inline-block;
+    margin-left:28%;
+   
 }
 
 #edit-profile{
@@ -255,27 +299,6 @@ footer{
         width: 50%;
         margin-right: -50px;
     }
-
-    #nav-news, #nav-home{
-        display: inline-block;
-    }
-    #menu-icon{
-        width:50px;
-        display: none;
-    }
-
-    .menu-list{
-        display: block;
-        width: 30%;
-        height: 88.5%;
-        background-color: white;
-        position: absolute;
-        top: 6.5%; 
-    }
-
-    .menu-list #close{
-        display: none;
-    }
     .content-container{
         grid-area: content;
     }
@@ -289,53 +312,29 @@ footer{
         ;
  }
 
- #profile-avatar{
-    width: 180px;
-    height: 170px;
-    background-color: white;
-    margin: 15px auto;
-    border-radius: 50%;
-}
-
-
     .content{
         grid-area: cont;
-        width: 550px;
+        width: 500px;
         height:100%;
    }
-   #dashboard-details, #personal-details{
-    margin-left: 10px;
+   #content-header{
+       background-color: #B2F2B8;
+       color:#000;
+   }
+   #content-list div{
+    width: 80%;
+    height: 40px;
+    margin: 20px auto;
+    margin-bottom: -10px;
+    padding: 5px;
+    background-color: #B2F2B8;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 2px 3px 5px 3px;
+    text-align: center;
+   
 }
   
-    #dashboard-details-right, #personal-details-right{
-        display: inline-block;
-        float: right;
-        margin-right: 50px;
-        margin-top: -20px;
-        padding-top: 15px;
-    }
-
-    #edit-profile{
-        margin-left: 50px;
-    }
-    #profile-avatar-wrapper{
-        margin-left: -40px;
-    }
-    #profile-avatar{
-        width: 200px;
-        height: 200px;
-        background-color: white;
-        margin-left: 80px;
-        border-radius: 50%;
-    }
-    .activities-container{
-        grid-area: activity;
-        width: 80%;
-        height: auto;
-        margin-left:-10px;
-        display:block;
-    
-    }
 
     footer{
         margin-top: 0px;
@@ -373,56 +372,21 @@ footer{
     }
     .content-container{
         grid-template-areas: 
-        "activity cont cont"
-        "activity cont cont"
+        "activity activity cont"
+        "activity activity cont"
         ;
-        grid-template-columns: 1fr, 1fr 1fr;
-        grid-template-rows:1fr, 
+        grid-template-columns: 1fr, 2fr 1fr;
+        grid-template-rows:1fr; 
        
     }
 
     .content{
         grid-area: cont;
         height:100%;
-        width: 1100px;
-        margin-left: -50px;
+        width: 1000px;
 
     }
-
-    #content-list{
-        margin-left: 30px;
-        width: 60%;
-    }
-    #dashboard-details, #personal-details{
-        margin-left: 30px;
-    }
-    .activities-container{
-        grid-area: activity;
-        width: 250px;
-        height: 100%;
-        margin-left:-10px;
-        display:block;
-    
-    }
-    .menu-list{
-        height: 100%;
-        width: 250px;
-        background-color: white;
-        position: relative;
-        top: 0%; 
-    }
-
-    #profile-avatar-wrapper{
-        margin-left: 10px;
-    }
-
-    #profile-avatar{
-        width: 200px;
-        height: 200px;
-        background-color: white;
-        margin-left: 80px;
-        border-radius: 50%;
-    }
+     
   
     footer{
         margin-top: 0px;
@@ -434,4 +398,3 @@ footer{
         background-color: #14AF22;
     }
 }
-

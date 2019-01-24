@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard|Politico</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <section class="wrapper">
+        <nav>
+            <h1>Politico</h1>
+            <div class="nav-list-container">
+                    
+                <ul>
+                    <li id="menu-icon"><a  href="#" onclick="showList(); return false" ><img src="images/menu-icon.gif"></a></li>
+                    <li id="nav-news"><a href="#">News</a></li>
+                    <li id="nav-home"><a href="#">Home</a></li>
+                </ul>
+            </div>
+            <div class="menu-list" id="menu-lists">
+                <div id="menu-header">
+                    <span id="menu-header-img"><img src="images/account-icon.gif"></span>
+                    <h3 id="menu-list-header"> My Account</h3> 
+                    <span id="close" onclick="showList(); return false">X</span>
+                </div> 
+                
+                <ul>
+                    <li id="login-menu-list"><a href="#"><img src="images/account.gif"> Dashboard</a></li>
+                    <li id="signup-menu-list"><a href="#"><img src="images/flag.jpg"> Polical parties</a></li>
+                    <li id="order-menu-list"><a href="#"><img src="images/office.png"> Political offices</a></li>
+                    <li id="data-menu-list"><a href="#"><img src="images/result.png"> Election results</a></li>
+                    <li id="help-menu-list"><a a href="#"><img src="images/petition.png"> Petition</a></li>
+                    <li id="contact-menu-list"><a a href="#"><img src="images/contact.png"> Contact us</a></li>
+                    <li id="about-menu-list"><a a href="#"><img src="images/signout.png"> Sign out</a></li>
+                </ul>
+    
+            </div>
+        
+        </nav>
+        <section class="content-container">
+            <div class="content">
+                
+                <div id="content-header">
+                    <div id="plus-sign-container">
+                    </div>
+                </div>
+           
+              
+                                        
+            </div>
+            <div class="activities-container">
+                <div id="activities" >
+                    <div id="edit-profile">
+                        <a href="#">Edit profile</a>
+                    </div>
+                    <div id="profile-avatar">
+                            <img src="">
+                    </div>
+                    <div id="profile-details">
+                        <ul>
+                            <li>Abdulrasaq</li> 
+                            <li>Admin</li>
+                            <li>E-001</li>
+                        </ul>
+                    </div>
+
+                    <div id="content-list">
+                        <div><a href="#">Dashboard</a></div>
+                        <div><a href="#">Political parties</a></div>
+                        <div><a href="#">Political offices</a></div>
+                        <div><a href="#">Election results</a></div>
+                        <div><a href="#">Petition</a></div>
+                    </div>
+
+                </div>
+
+            </div>
+            
+        </section>
+        <footer>
+            <div class="footer-wrapper">
+                Darot &copy;
+            </div>
+            
+        </footer>
+    </section>
+
+   <script src="js/profile.js"></script>
+</body>
+</html>
