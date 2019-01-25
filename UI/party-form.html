@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Offices|Politico</title>
+    <link rel="stylesheet" href="css/offices-form.css">
+</head>
+<body>
+    <section class="wrapper">
+        <nav>
+            <h1>Politico</h1>
+            <div class="nav-list-container">
+                    
+                <ul>
+                    <li id="menu-icon"><a  href="#" onclick="showList(); return false" ><img src="images/menu-icon.gif"></a></li>
+                    <li id="nav-news"><a href="#">News</a></li>
+                    <li id="nav-home"><a href="index.html">Home</a></li>
+                </ul>
+            </div>
+            
+        </nav>
+        <section class="content-container">
+            <div class="content">
+                <div id="profile-avatar-wrapper" >
+                    <div id="edit-profile">
+                        <a href="#">Edit profile</a>
+                    </div>
+                    <div id="profile-avatar">
+                            <img src="">
+                    </div>
+
+                </div>
+                
+                <!-- <div id="content-header">
+                    <div id="plus-sign-container">
+                    </div>
+                </div> -->
+                
+                <section class="loginform">
+                    <div class="login-avatar">
+                        <img src="./images/account.gif" alt="avatar">
+                    </div>
+                    <div class="form-wrapper" id="form-wrap1">
+                        <h3 style="display:none;">Sign in here</h3>
+                        <form>
+                            <label id="username-label">Political Party:</label><br>
+                            <input type="text" placeholder="President" id="username" class="input">
+                            <label id="username-label">Party ID:</label>
+                            <input type="text" placeholder="Office ID" id="office-id" class="input"><br>
+                            <label id="username-label">Head Office:</label>
+                            <input type="text" placeholder="E.g Lagos" id="federal" class="input"><br>
+                            <label id="username-label">City:</label>
+                            <input type="text" placeholder="E.g Lagos" id="federal" class="input"><br>
+                            <input type="checkbox" id="checkbox" style="display:none;"><p style="display:none;" id="checkbox-label">Remember me</p>
+                            <div class="btn"><a href="#" id="enter">Submit</a></div>
+                        
+                        </form>
+                    </div>
+                    <div class="form-wrapper" id="form-wrap2">
+                        <h3>Sign up here</h3>
+                        <form>
+                            <label id="username-label">Username</label><br>
+                            <input type="text" placeholder="username" id="username" class="input">
+                            <label id="password-label">Password</label>
+                            <input type="password" placeholder="Enter the password" id="password" class="input"><br>
+                            <label id="cpassword-label">Confirm password</label>
+                            <input type="password" placeholder="Enter the password" id="password" class="input"><br>
+                            <input type="checkbox" id="checkbox"><p id="checkbox-label">Remember me</p>
+                            <div class="btn"><a href="#" id="enter">Sign up</a></div>
+                            
+                            
+                            
+                        </form>
+                        
+                    </div>
+                </section>
+                   
+                                        
+            </div>
+            <div class="activities-container">
+                <div class="menu-list" id="menu-lists">
+                    <div id="menu-header">
+                        <span id="menu-header-img"><img src="images/user.jpg"></span>
+                        <h3 id="menu-list-header"> Username</h3> 
+                        <!-- <span id="close" onclick="showList(); return false">X</span> -->
+                    </div> 
+                    
+                    <ul>
+                        <li id="login-menu-list"><a href="dashboard.html"><img src="images/account.gif"> Dashboard</a></li>
+                        <li id="signup-menu-list"><a href="#"><img src="images/flag.jpg"> Polical parties</a></li>
+                        <li id="order-menu-list"><a href="#"><img src="images/office.png"> Political offices</a></li>
+                        <li id="data-menu-list"><a href="#"><img src="images/result.png"> Election results</a></li>
+                        <li id="help-menu-list"><a a href="#"><img src="images/petition.png"> Petition</a></li>
+                        <li id="contact-menu-list"><a a href="#"><img src="images/contact.png"> Contact us</a></li>
+                        <li id="about-menu-list"><a a href="#"><img src="images/signout.png"> Sign out</a></li>
+                    </ul>
+        
+                </div>
+            </div>
+            
+        </section>
+        <footer>
+            <div class="footer-wrapper">
+                Darot &copy;
+            </div>
+            
+        </footer>
+    </section>
+
+    <script src="js/officespage.js"></script>
+</body>
+</html>
