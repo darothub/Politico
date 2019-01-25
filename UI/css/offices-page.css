@@ -165,6 +165,7 @@ nav>h1{
     background-color: rgba(255, 255, 255, 0.4);
     font-size: 16px;
     margin: 20px auto;
+  
    
 }
 .dashboard-header{
@@ -183,22 +184,49 @@ nav>h1{
     display: none;
 }
 
-.dashboard-details-left, .personal-details-left{
-    display: inline-block;
-    margin-left: px;
-    margin-top: -10px;
-    padding-top: 15px;
+.dashboard-details-left li{
+    overflow: hidden;
+    padding:5px 0;
  }
 
+ .dashboard-details-left li .office{
+     width: auto;
+     font-size: 14px;
+     
+ }
+ .dashboard-details-left li .btns{
+    float: right;
+    font-size: 14px;
+    margin-right: 8px;
+}
+.dashboard-details-left li .btns a{
+    margin-left: 5px;
+}
+ .dashboard-details-left li a{
+    margin-left: px;
+}
 
- .dashboard-details-right-parties{
-    display: inline-block;
-    margin-left: 105px;
-    margin-top: -10px;
-    padding-top: 15px;
+ .dashboard-details-right-parties li{
+    display: inline; 
+    float:right;
+    position: relative;
+    top: -85px;
+    margin-left: 5px; 
+    
+ }
+ .dashboard-details-right-parties-two li{
+    display: inline; 
+    float:right;
+    position: relative;
+    top: -60px;
+    left: 115px;
+    margin-left: 5px; 
     
  }
 
+ 
+ 
+ 
  .dashboard-details-right-votes, .dashboard-details-right-candidates{
      display: none;
  }
@@ -231,7 +259,7 @@ nav>h1{
 }
 .activities-container{
     grid-area: activity;
-    display: none;
+    display: block;
 
 }
 
