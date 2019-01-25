@@ -5,6 +5,7 @@
 html, body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 100%;
+    overflow-x: hidden;
     
 }
 a, ul, li{
@@ -94,7 +95,7 @@ nav>h1{
     font-weight:30px;
     
 }
-.banner #log-in{
+.banner #sign-up{
     background-color: #14AF22;
    
 }
@@ -181,8 +182,8 @@ footer{
     }
     nav>.nav-list-container{
         float:right;
-        width: 50%;
-        margin-right: -50px;
+        width: auto;
+        margin-right: 20px;
     }
     .content-container{
         grid-area: content;
@@ -256,8 +257,8 @@ footer{
     }
     nav>.nav-list-container{
         float:right;
-        width: 50%;
-        margin-right: -100px;
+        width: auto;
+        margin-right: 95px;
     }
     .content-container{
         grid-area: content;
@@ -336,5 +337,13 @@ footer{
         grid-area: footer;
         color: #fff;
         background-color: #14AF22;
+    }
+}
+
+@media only screen and (min-width:1024px){
+    nav>.nav-list-container{
+        float:right;
+        width: auto;
+        margin-right: 190px;
     }
 }
