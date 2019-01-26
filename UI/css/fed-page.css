@@ -24,7 +24,7 @@ a, ul, li{
     
     ;
     grid-template-columns: 1fr;
-    grid-template-rows: .6fr auto .4fr;
+    grid-template-rows: .5fr auto .3fr;
     background: linear-gradient(#B2F2B8, rgba(199, 241, 193, 0.5)), url("../images/nigflag.jpg");
     background-size: cover;
     background-repeat:no-repeat;
@@ -211,12 +211,20 @@ nav>h1{
     font-size: 16px;
 }
 .dashboard-sub-heading li span:nth-child(2){
-    display: block;
+    display: inline-block
 }
 .dashboard-sub-heading li .btns {
-    float: right;
-    margin-left: 230px;
+    display: inline-block;
+  
 }
+.dashboard-sub-heading li span:nth-child(2){
+   margin-left:150px;
+  
+}
+.dashboard-sub-heading li span:nth-child(3){
+    margin-left:40px;
+   
+ }
  /* .dashboard-details-right-parties li{
     display: inline; 
     float:right;
@@ -348,7 +356,15 @@ footer{
         "activity cont cont"
         ;
     }
-    .dashboard-sub-heading li:nth-child(3), .dashboard-sub-heading li:nth-child(4){
+    .dashboard-sub-heading li span:nth-child(2){
+        margin-left:320px;
+       
+     }
+     .dashboard-sub-heading li span:nth-child(3){
+         margin-left:40px;
+        
+      }
+    /* .dashboard-sub-heading li:nth-child(3), .dashboard-sub-heading li:nth-child(4){
         display: inline-block;
     }
     .dashboard-sub-heading li:nth-child(2){
@@ -358,28 +374,28 @@ footer{
     .dashboard-sub-heading li:nth-child(3){
         
         margin-left: 50px;
-    }
-    .dashboard-sub-heading li:nth-child(4){
+    } */
+    /* .dashboard-sub-heading li:nth-child(4){
         
         margin-left: 40px;
-    }
-    .dashboard-details-right-parties{
+    } */
+    /* .dashboard-details-right-parties{
         display: inline-block;
         margin-left: 70px
-    }
-    .dashboard-details-right-votes{
+    } */
+    /* .dashboard-details-right-votes{
         display: inline-block;
         margin-left: 110px;
     }
     .dashboard-details-right-candidates{
         display: inline-block;
         margin-left: 90px;
-    }
+    } */
 
-    .dashboard-sub-heading li .btns {
+    /* .dashboard-sub-heading li .btns {
         float: right;
         margin-left: 400px;
-    }
+    } */
     #profile-avatar{
         width: 180px;
         height: 170px;
@@ -395,13 +411,13 @@ footer{
     }
   
   
-    .dashboard-details-right, #personal-details-right{
+    /* .dashboard-details-right, #personal-details-right{
         display: inline-block;
         float: right;
         margin-right: 50px;
         margin-top: -20px;
         padding-top: 15px;
-    }
+    } */
 
     #profile-avatar-wrapper{
     
@@ -478,7 +494,7 @@ footer{
         "activity cont cont"
         ;
     }
-    .dashboard-sub-heading li:nth-child(3), .dashboard-sub-heading li:nth-child(4){
+    /* .dashboard-sub-heading li:nth-child(3), .dashboard-sub-heading li:nth-child(4){
         display: inline-block;
     }
     .dashboard-sub-heading li:nth-child(2){
@@ -509,6 +525,15 @@ footer{
     .dashboard-sub-heading li .btns {
         float: right;
         margin-left: 586px;
+    } */
+
+    .dashboard-sub-heading li span:nth-child(2){
+        margin-left:500px;
+       
+     }
+     .dashboard-sub-heading li span:nth-child(3){
+         margin-left:40px;
+        
     }
     #profile-avatar{
         width: 180px;
@@ -597,7 +622,7 @@ footer{
         
     }
 
-    .dashboard-sub-heading li:nth-child(2){
+    /* .dashboard-sub-heading li:nth-child(2){
         
         margin-left: 170px;
     }
@@ -624,7 +649,16 @@ footer{
     .dashboard-sub-heading li .btns {
         float: right;
         margin-left: 760px;
-    }
+    } */
+
+    .dashboard-sub-heading li span:nth-child(2){
+        margin-left:680px;
+       
+     }
+     .dashboard-sub-heading li span:nth-child(3){
+         margin-left:40px;
+        
+      }
     .content{
         grid-area: cont;
         width: 100%;
