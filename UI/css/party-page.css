@@ -24,7 +24,7 @@ a, ul, li{
     
     ;
     grid-template-columns: 1fr;
-    grid-template-rows:1fr auto;
+    grid-template-rows:.6fr auto .4fr;
     background: linear-gradient(#B2F2B8, rgba(199, 241, 193, 0.5)), url("../images/nigflag.jpg");
     background-size: cover;
     background-repeat:no-repeat;
@@ -33,7 +33,7 @@ a, ul, li{
 .content-container{
     grid-area: content;
     width: 100%;
-    height: 100%;
+    height: auto;
     display: grid;
     grid-template-areas: 
     "activity activity"
@@ -49,8 +49,9 @@ nav{
     grid-area: nav;
     background-color: #14AF22;
     width: 100%;
-    height: 100%;
+    height: auto;
     text-align: center;
+   
 }
 
 nav>h1{
@@ -143,7 +144,8 @@ nav>h1{
     grid-area: cont;
     height:auto;
     text-align: justify;
-    margin-top: 0px;    
+    margin-top: 0px;
+        
 }
 
 #content-header{
@@ -160,10 +162,11 @@ nav>h1{
 
 .dashboard-details{
     width: 90%;
+    float: left;
     height: auto;
     background-color: rgba(255, 255, 255, 0.4);
     font-size: 16px;
-    margin: 20px auto;
+    margin: 20px 20px;
   
    
 }
@@ -171,10 +174,53 @@ nav>h1{
     width: 100%;
     background-color: #B2F2B8;
 }
+.dashboard-sub-heading{
+    
+    width: auto;
+}
 .dashboard-sub-heading li{
     display: inline-block;
+    overflow: hidden;
+    padding:5px;
     
 }
+.dashboard-sub-heading li:nth-child(1){
+    margin-left: -5px;
+}
+.dashboard-sub-heading li:nth-child(2){
+     display: none;
+}
+.dashboard-sub-heading li:nth-child(3){
+    display: block;
+    float: right;
+    margin-right: 8px;
+}
+.dashboard-details-left li{
+   
+    overflow: hidden;
+    padding:6px 0;
+    
+ }
+ .dashboard-details-left {
+     float: left;
+     width: 50px;
+     
+ }
+
+.dashboard-details-image{
+    width: auto;
+    float: right;
+    margin-right: 0px;
+}
+
+.dashboard-details-image li img{
+    width: 40px;
+    
+}
+.dashboard-details-Middle{
+    display: none;
+}
+
 /* .dashboard-sub-heading li:nth-child(2){
     
     margin-left: 190px;
@@ -183,36 +229,34 @@ nav>h1{
     display: none;
 } */
 
-.dashboard-details-left li{
-    overflow: hidden;
-    padding:5px 0;
- }
 
+/* 
  .dashboard-details-left li .office{
      width: auto;
+     float: left;
      font-size: 14px;
      
  }
  .dashboard-details-left li .btns {
-    float: right;
+    float: left;
     font-size: 14px;
-    margin-right: 8px;
+    margin-left: 150px;
 }
 .dashboard-details-left li .btns a{
-    margin-left: 5px;
-}
-.dashboard-sub-heading li{
-    overflow: hidden;
-    padding:5px 0;
-}
-.dashboard-sub-heading li .office{
+    margin-left: 0px;
+    
+} */
+
+/* .dashboard-sub-heading li .office{
     width: auto;
+    float: left;
     font-size: 16px;
 }
 .dashboard-sub-heading li .btns {
-    float: right;
-    margin-left: 230px;
-}
+    float: left;
+    margin-left: 150px;
+} */
+
  /* .dashboard-details-right-parties li{
     display: inline; 
     float:right;
@@ -270,115 +314,6 @@ nav>h1{
 
 }
 
-.loginform{
-    width: 90%;
-    height: auto;
-    margin: 10px auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas: "avatar avatar"
-                         "form-wrapper form-wrapper";
-                         background: linear-gradient(#B2F2B8, rgba(199, 241, 193, 0.5)), url("../images/nigflag.jpg");
-                         background-size: cover;
-                         background-repeat:no-repeat;
-                         background-position: center;
-                        
-}
-.login-avatar{
-    grid-area: avatar;
-    width:100px;
-    height:90px;
-    margin: auto;
-}
-.login-avatar img{
-    margin:5px auto;
-    width: 80px;
-    margin-left: 10px;
-}
-
-.form-wrapper{
-    grid-area: form-wrapper;
-    width: 95%;
-    height: auto;
-    margin:5px auto;
-    box-shadow: 5px 5px 5px 3px #14AF22;
-    border-radius: 5px;
-}
-
-.form-wrapper  #username, #federal, #office-id{
-    margin-top: 5px;
-    margin-bottom: 10px
-}
-
-.form-wrapper  #username-label{
-    font-size: 16px;
-        
-}
-
-
-.form-wrapper #password-label{
-    font-size: 16px;
-}
-.form-wrapper form{
-   margin-top:30px; 
-   margin-left: 10px;  
-}
-.form-wrapper input{
-   width: 95%;
-   height: 40px;
-   float: left;
-   margin-top: 20px;
-  
-}
-
-.form-wrapper input:focus{
-    border:2px solid #14AF22;
-}
-
-.form-wrapper #checkbox{
-    width:15px;
-    height: 10px;
-    margin-top:20px;
-    float: left;
-}
-.form-wrapper #checkbox-label{
-    width:100px;
-    height: 10px;
-    margin-top:15px;
-    float: left;
-    font-size: 12px;
-}
-
-.form-wrapper h3{
-    margin-left: 8px;
-}
-.btn{
-    position: relative;
-    width:100px;
-    height: 40px;
-    background-color:#14AF22;
-    margin: 70px auto;
-    margin-bottom: 30px;
-    text-align: center;
-    line-height: 2.5em;
-    font-weight:30px;
-    box-sizing: border-box;
-    
-}
-.btn a{
-    display: block;
-    color: white;
-    font-size: 12px;
-}
-#loginreturn{
-    float: left;
-}
-
-#form-wrap2{
-    display: none;
-    
-}
-
 footer{
     grid-area: footer;
     margin-top: 50px;
@@ -407,7 +342,7 @@ footer{
     background-size: cover;
     background-repeat:no-repeat;
     background-position: center;
-}
+    }
   
     nav{
         grid-area: nav;
@@ -479,12 +414,44 @@ footer{
     .dashboard-details-right-candidates{
         display: inline-block;
         margin-left: 90px;
-    }
+    } */
 
-    .dashboard-sub-heading li .btns {
+    /* .dashboard-sub-heading li .btns {
         float: right;
         margin-left: 400px;
     } */
+    
+    .dashboard-details-Middle{
+        display: block;
+        margin-left: 155px;
+        
+    }
+    .dashboard-details-Middle li{
+        overflow: hidden;
+        padding: 6px 0;
+    }
+    .dashboard-details-image{
+        margin-top:-160px;
+    }
+    .dashboard-sub-heading li{
+        display: inline-block;
+        overflow: hidden;
+        padding:5px;
+        
+    }
+    /* .dashboard-sub-heading li:nth-child(1){
+        
+        
+    } */
+    .dashboard-sub-heading li:nth-child(2){
+       display: inline-block;
+       margin-left: 100px;
+        
+    }
+    .dashboard-sub-heading li:nth-child(3){
+        display: block;
+    }
+    
     #profile-avatar{
         width: 180px;
         height: 170px;
@@ -500,13 +467,13 @@ footer{
     }
   
   
-    .dashboard-details-right, #personal-details-right{
+    /* .dashboard-details-right, #personal-details-right{
         display: inline-block;
         float: right;
         margin-right: 50px;
         margin-top: -20px;
         padding-top: 15px;
-    }
+    } */
 
     #profile-avatar-wrapper{
     
@@ -526,44 +493,6 @@ footer{
     
     }
 
-    .loginform{
-        grid-area: cont;
-        width: 350px;
-        height: auto;
-        margin: 30px auto;
-        background-color: white;
-        border: 2px solid #14AF22;
-        border-radius: 15px;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas: "avatar avatar"
-                             "form-wrapper form-wrapper"
-    }
-    .login-avatar img{
-        margin:20px auto;
-        width: 80px;
-        margin-left: 10px;
-    }
-    .form-wrapper #checkbox{
-        width:10px;
-        height: 10px;
-        margin-top:20px;
-        margin-left:5px;
-        float: left;
-    }
-    .form-wrapper form{
-        margin-top:10px; 
-        margin-left: 5px; 
-        padding-top:20px; 
-     }
-    .form-wrapper{
-        grid-area: form-wrapper;
-        width: 95%;
-        height: auto;
-        margin:20px auto;
-        box-shadow: 5px 5px 5px 3px #14AF22;
-        border-radius: 5px;
-    }
 
 
     footer{
@@ -621,16 +550,14 @@ footer{
         "activity cont cont"
         ;
     }
-
-    
     /* .dashboard-sub-heading li:nth-child(3), .dashboard-sub-heading li:nth-child(4){
         display: inline-block;
     }
     .dashboard-sub-heading li:nth-child(2){
         
         margin-left: 150px;
-    }
-    .dashboard-sub-heading li:nth-child(3){
+    } */
+    /* .dashboard-sub-heading li:nth-child(3){
         
         margin-left: 100px;
     }
@@ -649,12 +576,24 @@ footer{
     .dashboard-details-right-candidates{
         display: inline-block;
         margin-left: 140px;
-    }
+    } */
 
-    .dashboard-sub-heading li .btns {
+
+    /* .dashboard-sub-heading li .btns {
         float: right;
         margin-left: 586px;
     } */
+
+    .dashboard-details{
+        width: 90%;
+        float: left;
+        height: auto;
+        background-color: rgba(255, 255, 255, 0.4);
+        font-size: 16px;
+        margin: 20px 50px;
+      
+       
+    }
     #profile-avatar{
         width: 180px;
         height: 170px;
@@ -711,45 +650,6 @@ footer{
         color: #fff;
         background-color: #14AF22;
     }
-    .loginform{
-        grid-area: cont;
-        width: 350px;
-        height: auto;
-        margin-top: 30px;
-        margin-bottom: 10px;
-        background-color: white;
-        border: 2px solid #14AF22;
-        border-radius: 15px;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas: "avatar avatar"
-                             "form-wrapper form-wrapper"
-    }
-    .login-avatar img{
-        margin:20px auto;
-        width: 80px;
-        margin-left: 10px;
-    }
-    .form-wrapper #checkbox{
-        width:10px;
-        height: 10px;
-        margin-top:20px;
-        margin-left:5px;
-        float: left;
-    }
-    .form-wrapper form{
-        margin-top:10px; 
-        margin-left: 10px; 
-        padding-top:20px; 
-     }
-    .form-wrapper{
-        grid-area: form-wrapper;
-        width: 95%;
-        height: auto;
-        margin:20px auto;
-        box-shadow: 5px 5px 5px 3px #14AF22;
-        border-radius: 5px;
-    }
 }
 
 @media only screen and (min-width:1366px){
@@ -781,7 +681,7 @@ footer{
         
     }
 
-    .dashboard-sub-heading li:nth-child(2){
+    /* .dashboard-sub-heading li:nth-child(2){
         
         margin-left: 170px;
     }
@@ -796,18 +696,28 @@ footer{
     .dashboard-details-right-parties{
         display: inline-block;
         margin-left: 90px;
-    }
-    .dashboard-details-right-votes{
+    } */
+    /* .dashboard-details-right-votes{
         display: inline-block;
         margin-left: 270px;
     }
     .dashboard-details-right-candidates{
         display: inline-block;
         margin-left: 240px;
-    }
-    .dashboard-sub-heading li .btns {
+    } */
+    /* .dashboard-sub-heading li .btns {
         float: right;
-        margin-left: 760px;
+        margin-left: 700px;
+    } */
+    .dashboard-sub-heading li:nth-child(2){
+        
+        margin-left: 200px;
+         
+     }
+     .dashboard-details-Middle{
+        display: block;
+        margin-left: 255px;
+        
     }
     .content{
         grid-area: cont;

@@ -24,7 +24,7 @@ a, ul, li{
     
     ;
     grid-template-columns: 1fr;
-    grid-template-rows:1fr auto;
+    grid-template-rows: .5fr auto .3fr;
     background: linear-gradient(#B2F2B8, rgba(199, 241, 193, 0.5)), url("../images/nigflag.jpg");
     background-size: cover;
     background-repeat:no-repeat;
@@ -51,6 +51,7 @@ nav{
     width: 100%;
     height: 100%;
     text-align: center;
+   
 }
 
 nav>h1{
@@ -209,10 +210,21 @@ nav>h1{
     width: auto;
     font-size: 16px;
 }
-.dashboard-sub-heading li .btns {
-    float: right;
-    margin-left: 230px;
+.dashboard-sub-heading li span:nth-child(2){
+    display: inline-block
 }
+.dashboard-sub-heading li .btns {
+    display: inline-block;
+  
+}
+.dashboard-sub-heading li span:nth-child(2){
+   margin-left:150px;
+  
+}
+.dashboard-sub-heading li span:nth-child(3){
+    margin-left:40px;
+   
+ }
  /* .dashboard-details-right-parties li{
     display: inline; 
     float:right;
@@ -268,115 +280,6 @@ nav>h1{
     grid-area: activity;
     display: block;
 
-}
-
-.loginform{
-    width: 90%;
-    height: auto;
-    margin: 10px auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas: "avatar avatar"
-                         "form-wrapper form-wrapper";
-                         background: linear-gradient(#B2F2B8, rgba(199, 241, 193, 0.5)), url("../images/nigflag.jpg");
-                         background-size: cover;
-                         background-repeat:no-repeat;
-                         background-position: center;
-                        
-}
-.login-avatar{
-    grid-area: avatar;
-    width:100px;
-    height:90px;
-    margin: auto;
-}
-.login-avatar img{
-    margin:5px auto;
-    width: 80px;
-    margin-left: 10px;
-}
-
-.form-wrapper{
-    grid-area: form-wrapper;
-    width: 95%;
-    height: auto;
-    margin:5px auto;
-    box-shadow: 5px 5px 5px 3px #14AF22;
-    border-radius: 5px;
-}
-
-.form-wrapper  #username, #federal, #office-id{
-    margin-top: 5px;
-    margin-bottom: 10px
-}
-
-.form-wrapper  #username-label{
-    font-size: 16px;
-        
-}
-
-
-.form-wrapper #password-label{
-    font-size: 16px;
-}
-.form-wrapper form{
-   margin-top:30px; 
-   margin-left: 10px;  
-}
-.form-wrapper input{
-   width: 95%;
-   height: 40px;
-   float: left;
-   margin-top: 20px;
-  
-}
-
-.form-wrapper input:focus{
-    border:2px solid #14AF22;
-}
-
-.form-wrapper #checkbox{
-    width:15px;
-    height: 10px;
-    margin-top:20px;
-    float: left;
-}
-.form-wrapper #checkbox-label{
-    width:100px;
-    height: 10px;
-    margin-top:15px;
-    float: left;
-    font-size: 12px;
-}
-
-.form-wrapper h3{
-    margin-left: 8px;
-}
-.btn{
-    position: relative;
-    width:100px;
-    height: 40px;
-    background-color:#14AF22;
-    margin: 70px auto;
-    margin-bottom: 30px;
-    text-align: center;
-    line-height: 2.5em;
-    font-weight:30px;
-    box-sizing: border-box;
-    
-}
-.btn a{
-    display: block;
-    color: white;
-    font-size: 12px;
-}
-#loginreturn{
-    float: left;
-}
-
-#form-wrap2{
-    display: none;
-    
 }
 
 footer{
@@ -453,6 +356,14 @@ footer{
         "activity cont cont"
         ;
     }
+    .dashboard-sub-heading li span:nth-child(2){
+        margin-left:320px;
+       
+     }
+     .dashboard-sub-heading li span:nth-child(3){
+         margin-left:40px;
+        
+      }
     /* .dashboard-sub-heading li:nth-child(3), .dashboard-sub-heading li:nth-child(4){
         display: inline-block;
     }
@@ -463,25 +374,25 @@ footer{
     .dashboard-sub-heading li:nth-child(3){
         
         margin-left: 50px;
-    }
-    .dashboard-sub-heading li:nth-child(4){
+    } */
+    /* .dashboard-sub-heading li:nth-child(4){
         
         margin-left: 40px;
-    }
-    .dashboard-details-right-parties{
+    } */
+    /* .dashboard-details-right-parties{
         display: inline-block;
         margin-left: 70px
-    }
-    .dashboard-details-right-votes{
+    } */
+    /* .dashboard-details-right-votes{
         display: inline-block;
         margin-left: 110px;
     }
     .dashboard-details-right-candidates{
         display: inline-block;
         margin-left: 90px;
-    }
+    } */
 
-    .dashboard-sub-heading li .btns {
+    /* .dashboard-sub-heading li .btns {
         float: right;
         margin-left: 400px;
     } */
@@ -500,13 +411,13 @@ footer{
     }
   
   
-    .dashboard-details-right, #personal-details-right{
+    /* .dashboard-details-right, #personal-details-right{
         display: inline-block;
         float: right;
         margin-right: 50px;
         margin-top: -20px;
         padding-top: 15px;
-    }
+    } */
 
     #profile-avatar-wrapper{
     
@@ -526,44 +437,6 @@ footer{
     
     }
 
-    .loginform{
-        grid-area: cont;
-        width: 350px;
-        height: auto;
-        margin: 30px auto;
-        background-color: white;
-        border: 2px solid #14AF22;
-        border-radius: 15px;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas: "avatar avatar"
-                             "form-wrapper form-wrapper"
-    }
-    .login-avatar img{
-        margin:20px auto;
-        width: 80px;
-        margin-left: 10px;
-    }
-    .form-wrapper #checkbox{
-        width:10px;
-        height: 10px;
-        margin-top:20px;
-        margin-left:5px;
-        float: left;
-    }
-    .form-wrapper form{
-        margin-top:10px; 
-        margin-left: 5px; 
-        padding-top:20px; 
-     }
-    .form-wrapper{
-        grid-area: form-wrapper;
-        width: 95%;
-        height: auto;
-        margin:20px auto;
-        box-shadow: 5px 5px 5px 3px #14AF22;
-        border-radius: 5px;
-    }
 
 
     footer{
@@ -621,8 +494,6 @@ footer{
         "activity cont cont"
         ;
     }
-
-    
     /* .dashboard-sub-heading li:nth-child(3), .dashboard-sub-heading li:nth-child(4){
         display: inline-block;
     }
@@ -655,6 +526,15 @@ footer{
         float: right;
         margin-left: 586px;
     } */
+
+    .dashboard-sub-heading li span:nth-child(2){
+        margin-left:500px;
+       
+     }
+     .dashboard-sub-heading li span:nth-child(3){
+         margin-left:40px;
+        
+    }
     #profile-avatar{
         width: 180px;
         height: 170px;
@@ -711,45 +591,6 @@ footer{
         color: #fff;
         background-color: #14AF22;
     }
-    .loginform{
-        grid-area: cont;
-        width: 350px;
-        height: auto;
-        margin-top: 30px;
-        margin-bottom: 10px;
-        background-color: white;
-        border: 2px solid #14AF22;
-        border-radius: 15px;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas: "avatar avatar"
-                             "form-wrapper form-wrapper"
-    }
-    .login-avatar img{
-        margin:20px auto;
-        width: 80px;
-        margin-left: 10px;
-    }
-    .form-wrapper #checkbox{
-        width:10px;
-        height: 10px;
-        margin-top:20px;
-        margin-left:5px;
-        float: left;
-    }
-    .form-wrapper form{
-        margin-top:10px; 
-        margin-left: 10px; 
-        padding-top:20px; 
-     }
-    .form-wrapper{
-        grid-area: form-wrapper;
-        width: 95%;
-        height: auto;
-        margin:20px auto;
-        box-shadow: 5px 5px 5px 3px #14AF22;
-        border-radius: 5px;
-    }
 }
 
 @media only screen and (min-width:1366px){
@@ -781,7 +622,7 @@ footer{
         
     }
 
-    .dashboard-sub-heading li:nth-child(2){
+    /* .dashboard-sub-heading li:nth-child(2){
         
         margin-left: 170px;
     }
@@ -808,7 +649,16 @@ footer{
     .dashboard-sub-heading li .btns {
         float: right;
         margin-left: 760px;
-    }
+    } */
+
+    .dashboard-sub-heading li span:nth-child(2){
+        margin-left:680px;
+       
+     }
+     .dashboard-sub-heading li span:nth-child(3){
+         margin-left:40px;
+        
+      }
     .content{
         grid-area: cont;
         width: 100%;

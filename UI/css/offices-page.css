@@ -24,7 +24,7 @@ a, ul, li{
     
     ;
     grid-template-columns: 1fr;
-    grid-template-rows:1fr auto;
+    grid-template-rows: .6fr auto .4fr;
     background: linear-gradient(#B2F2B8, rgba(199, 241, 193, 0.5)), url("../images/nigflag.jpg");
     background-size: cover;
     background-repeat:no-repeat;
@@ -209,6 +209,9 @@ nav>h1{
 .dashboard-sub-heading li .office{
     width: auto;
     font-size: 16px;
+}
+.dashboard-sub-heading li span:nth-child(2){
+    display: block;
 }
 .dashboard-sub-heading li .btns {
     float: right;
