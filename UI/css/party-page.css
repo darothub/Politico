@@ -344,7 +344,7 @@ footer{
     ;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
-    background: linear-gradient(#B2F2B8, rgba(199, 241, 193, 0.5)), url("../images/nigflag.jpg");
+    background: linear-gradient(#B2F2B8, rgba(199, 241, 193, 0.5)), url("../images/nigflag.gif");
     background-size: cover;
     background-repeat:no-repeat;
     background-position: center;
