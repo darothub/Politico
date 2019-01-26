@@ -353,15 +353,16 @@ nav>h1{
     margin-left: 8px;
 }
 .btn{
-    width:auto;
-    height: 15px;
-    padding: 10px;
+    position: relative;
+    width:100px;
+    height: 40px;
     background-color:#14AF22;
-    margin: 10px 12px;
+    margin: 70px auto;
+    margin-bottom: 30px;
     text-align: center;
-    line-height: 1em;
+    line-height: 2.5em;
     font-weight:30px;
-    float: right;  
+    box-sizing: border-box;
 }
 .btn a{
     display: block;
