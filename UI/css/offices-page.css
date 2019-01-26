@@ -172,6 +172,12 @@ nav>h1{
     width: 100%;
     background-color: #B2F2B8;
 }
+.dashboard-header h3{
+    margin-left: 6px;
+}
+.dashboard-sub-heading{
+    margin-left: 6px;
+}
 .dashboard-sub-heading li{
     display: inline-block;
     
@@ -187,6 +193,7 @@ nav>h1{
 .dashboard-details-left li{
     overflow: hidden;
     padding:5px 0;
+    margin-left: 6px;
  }
 
  .dashboard-details-left li .office{

@@ -159,9 +159,11 @@ nav>.nav-list-container{
 #loginreturn{
     float: left;
 }
-
-#form-wrap2{
+#form-wrap1{
     display: none;
+}
+#form-wrap2{
+    display: block;
     
 }
 footer{
