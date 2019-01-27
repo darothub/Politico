@@ -14,10 +14,12 @@ app.use(_bodyParser.default.urlencoded({
 }));
 var PORT = process.env.PORT || 9000;
 app.get('/', function (req, res) {
-  res.json({
-    message: 'Hello World'
-  });
+  res.json = {
+    "status": 200,
+    "message": 'Hello World'
+  };
 });
 app.listen(PORT, function () {
   console.log("Server is listening on port ".concat(PORT));
 });
+module.exports = app;
