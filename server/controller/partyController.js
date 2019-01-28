@@ -60,6 +60,24 @@ class Party {
       data: { id, name },
     });
   }
+
+  static deleteParty(req, res) {
+    const party = parties.find(data => data.id === parseInt(req.params.id, 10));
+    if (!party) {
+      return res.status(404).json({
+        status: 404,
+        data: 'resource not found',
+      });
+    }
+    const position = parties.indexOf(party);
+    parties.splice(position, 1);
+    return res.status(200).json({
+      status: 200,
+      data: {
+        message: `${party.name} has been deleted`,
+      },
+    });
+  }
 }
 
 export default Party;

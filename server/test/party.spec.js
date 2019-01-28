@@ -201,3 +201,16 @@ describe('PATCH/api/v1/parties/:id/name', () => {
     done();
   });
 });
+
+describe('DELETE/api/v1/parties/:id', () => {
+  it('should delete the party with given id', (done) => {
+    chai.request(server)
+      .delete('/api/v1/parties/1/')
+      .end((err, res) => {
+        res.should.to.have.status(200);
+        assert.isOk(res.body);
+        assert.nestedProperty(res.body.data, 'message');
+      });
+    done();
+  });
+});
