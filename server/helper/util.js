@@ -8,6 +8,14 @@ class Helper {
                                         && newParty.logoUrl.trim() !== '';
     return validName && validHqAdress && validLogoUrl;
   }
+
+  static isOffice(newOffice) {
+    const validType = typeof newOffice.type === 'string'
+                                      && newOffice.type.trim() !== '';
+    const validName = typeof newOffice.name === 'string'
+                                        && newOffice.name.trim() !== '';
+    return validName && validType;
+  }
 }
 
 export default Helper;
