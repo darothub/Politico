@@ -6,7 +6,7 @@ const parties = [
     logoUrl: 'www.logo.com',
   },
   {
-    id: 1,
+    id: 2,
     name: 'PDP',
     hqAddress: '1, Mushin rd',
     logoUrl: 'www.logo.com',

@@ -11,7 +11,7 @@ chai.should();
 chai.use(chaiHttp);
 
 
-describe('POST/api/v1/party', () => {
+describe('POST/api/v1/parties', () => {
   it('should return 200 for new party', (done) => {
     const newParty = {
       id: parties.length + 1,
@@ -20,7 +20,7 @@ describe('POST/api/v1/party', () => {
       logoUrl: 'www.logo.net.png',
     };
     chai.request(server)
-      .post('/api/v1/party')
+      .post('/api/v1/parties')
       .type('form')
       .send(newParty)
       .end((err, res) => {
@@ -42,7 +42,7 @@ describe('POST/api/v1/party', () => {
       logoUrl: 'www.logo.net.png',
     };
     chai.request(server)
-      .post('/api/v1/party')
+      .post('/api/v1/parties')
       .type('form')
       .send(newParty)
       .end((err, res) => {
@@ -65,7 +65,7 @@ describe('POST/api/v1/party', () => {
       logoUrl: 'www.logo.net.png',
     };
     chai.request(server)
-      .post('/api/v1/party')
+      .post('/api/v1/parties')
       .type('form')
       .send(newParty)
       .end((err, res) => {
@@ -88,7 +88,7 @@ describe('POST/api/v1/party', () => {
       logoUrl: 'www.logo.net.png',
     };
     chai.request(server)
-      .post('/api/v1/party')
+      .post('/api/v1/parties')
       .type('form')
       .send(newParty)
       .end((err, res) => {
@@ -111,7 +111,7 @@ describe('POST/api/v1/party', () => {
       logoUrl: 'www.logo.net.png',
     };
     chai.request(server)
-      .post('/api/v1/party')
+      .post('/api/v1/parties')
       .type('form')
       .send(newParty)
       .end((err, res) => {

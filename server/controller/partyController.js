@@ -23,6 +23,13 @@ class Party {
       data: newParty,
     });
   }
+
+  static getAllParties(req, res) {
+    return res.status(200).json({
+      status: 200,
+      data: parties,
+    });
+  }
 }
 
 export default Party;
