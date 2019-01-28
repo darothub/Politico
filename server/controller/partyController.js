@@ -30,6 +30,20 @@ class Party {
       data: parties,
     });
   }
+
+  static getPartyById(req, res) {
+    const party = parties.find(data => data.id === parseInt(req.params.id, 10));
+    if (!party) {
+      return res.status(404).json({
+        status: 404,
+        data: 'resource not found',
+      });
+    }
+    return res.status(200).json({
+      status: 200,
+      data: party,
+    });
+  }
 }
 
 export default Party;
