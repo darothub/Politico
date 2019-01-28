@@ -100,3 +100,33 @@ describe('POST/api/v1/offices', () => {
     done();
   });
 });
+
+describe('GET /api/v1/offices', () => {
+  it('should return status 200 for getAll offices', (done) => {
+    chai.request(server)
+      .get('/api/v1/offices')
+      .end((err, res) => {
+        expect(res.body.status).to.eql(200);
+      });
+    done();
+  });
+  it('should return an object for getAll offices', (done) => {
+    chai.request(server)
+      .get('/api/v1/offices')
+      .end((err, res) => {
+        assert.isOk(res.body);
+        assert.isObject(res.body);
+      });
+    done();
+  });
+  it('should return an object with an array data for getAll offices', (done) => {
+    chai.request(server)
+      .get('/api/v1/offices')
+      .end((err, res) => {
+        assert.property(res.body, 'data');
+        assert.isArray(res.body.data);
+        expect(res.body.data).to.eql(offices);
+      });
+    done();
+  });
+});
