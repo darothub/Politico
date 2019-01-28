@@ -129,15 +129,29 @@ describe('POST/api/v1/parties', () => {
 });
 
 describe('GET /api/v1/parties', () => {
-  it('should return 200 for getAll parties', (done) => {
+  it('should return status 200 for getAll parties', (done) => {
+    chai.request(server)
+      .get('/api/v1/parties')
+      .end((err, res) => {
+        expect(res.body.status).to.eql(200);
+      });
+    done();
+  });
+  it('should return an object for getAll parties', (done) => {
     chai.request(server)
       .get('/api/v1/parties')
       .end((err, res) => {
         assert.isOk(res.body);
         assert.isObject(res.body);
+      });
+    done();
+  });
+  it('should return an object with an array data for getAll parties', (done) => {
+    chai.request(server)
+      .get('/api/v1/parties')
+      .end((err, res) => {
         assert.property(res.body, 'data');
         expect(res.body.data).to.eql(parties);
-        expect(res.body.status).to.eql(200);
       });
     done();
   });
