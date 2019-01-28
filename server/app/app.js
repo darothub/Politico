@@ -6,6 +6,8 @@ import morgan from 'morgan';
 
 import partyRoutes from '../routes/party';
 
+import officeRoutes from '../routes/office';
+
 const app = express();
 const PORT = process.env.PORT || 9000;
 
@@ -16,6 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(partyRoutes);
+app.use(officeRoutes);
 
 app.get('/', (req, res) => {
   res.json = ({
@@ -33,7 +36,7 @@ app.use((req, res, next) => {
 app.use((error, req, res, next) => {
   res.status(error.status || 500);
   res.json({
-    status: 500,
+    status: error.status,
     message: error.message,
   });
   next();
