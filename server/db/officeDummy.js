@@ -6,8 +6,8 @@ const offices = [
 
   },
   {
-    id: 1,
-    name: 'President',
+    id: 2,
+    name: 'Senator',
     type: 'Federal',
 
   },
