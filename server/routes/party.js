@@ -4,9 +4,10 @@ import Party from '../controller/partyController';
 
 const router = express.Router();
 
-const versionedapi = '/api/v1/';
+const versionedapi = '/api/v1/parties/';
 
-router.post(`${versionedapi}parties`, Party.createParty);
-router.get(`${versionedapi}parties`, Party.getAllParties);
+router.post(`${versionedapi}`, Party.createParty);
+router.get(`${versionedapi}`, Party.getAllParties);
+router.get(`${versionedapi}:id`, Party.getPartyById);
 
 export default router;

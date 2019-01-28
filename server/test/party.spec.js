@@ -156,3 +156,29 @@ describe('GET /api/v1/parties', () => {
     done();
   });
 });
+
+describe('GET /api/v1/parties/:id', () => {
+  it('should return party for the given id', (done) => {
+    chai.request(server)
+      .get('/api/v1/parties/1')
+      .end((err, res) => {
+        res.should.to.have.status(200);
+        assert.isOk(res.body);
+        assert.isNumber(res.body.data.id);
+        assert.nestedProperty(res.body, 'data.id');
+        assert.propertyVal(res.body.data, 'id', 1);
+      });
+    done();
+  });
+  it('should return error for the unknown id', (done) => {
+    chai.request(server)
+      .get('/api/v1/parties/0')
+      .end((err, res) => {
+        res.should.to.have.status(404);
+        assert.isOk(res.body);
+        assert.propertyVal(res.body, 'status', 404);
+        assert.propertyVal(res.body, 'data', 'resource not found');
+      });
+    done();
+  });
+});
