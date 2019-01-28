@@ -182,3 +182,22 @@ describe('GET /api/v1/parties/:id', () => {
     done();
   });
 });
+
+describe('PATCH/api/v1/parties/:id/name', () => {
+  it('should edit name of the party with given id', (done) => {
+    const data = {
+      name: 'APGC',
+    };
+    chai.request(server)
+      .patch('/api/v1/parties/1/name')
+      .type('form')
+      .send(data)
+      .end((err, res) => {
+        res.should.to.have.status(200);
+        assert.isOk(res.body);
+        assert.nestedProperty(res.body, 'data.id');
+        assert.propertyVal(res.body.data, 'name', 'APGC');
+      });
+    done();
+  });
+});
