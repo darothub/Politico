@@ -1,3 +1,4 @@
+/* global describe it */
 import chai from 'chai';
 
 import chaiHttp from 'chai-http';
@@ -12,12 +13,12 @@ describe('Homepage', () => {
     chai.request(server)
       .get('/')
       .end((err, res) => {
-        res.json = ({ 
-            "status": 200,
-            "message": 'Hello World' });
+        res.json = ({
+          status: 200,
+          message: 'Hello World',
+        });
         res.should.have.status(200);
-        
       });
-      done();
+    done();
   });
 });
