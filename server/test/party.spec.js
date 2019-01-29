@@ -27,10 +27,6 @@ describe('POST/api/v1/parties', () => {
         res.should.to.have.status(201);
         expect(res.body).to.have.property('data');
         assert.isOk(res.body);
-        // expect(res.body).to.have.property('name');
-        // expect(res.body).to.have.property('hqAddress');
-        // expect(res.body).to.have.property('logoUrl');
-        // assert.isNumber(res.body.id);
       });
     done();
   });
