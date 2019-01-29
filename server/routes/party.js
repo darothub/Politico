@@ -6,6 +6,6 @@ const router = express.Router();
 
 const versionedapi = '/api/v1/';
 
-router.post(`${versionedapi}party`, Party.createParty);
+router.post(`${versionedapi}parties`, Party.createParty);
 
 export default router;
