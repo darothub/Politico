@@ -1,2 +1,4 @@
 node_modules/
-server/lib/
+lib/
+.nyc_output/
+coverage/
