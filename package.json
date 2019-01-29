@@ -10,6 +10,9 @@
     "serve": "node lib/app.js",
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
+  "engines": {
+    "node": "10.3.0"
+  },
   "author": "darot",
   "license": "ISC",
   "dependencies": {
