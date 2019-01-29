@@ -8,7 +8,7 @@ class Party {
     if (!Helper.isParty(request)) {
       res.status(400).json({
         status: 400,
-        error: 'Invalid name/hqAddress/logo',
+        error: 'Invalid name/hqAddress/logoUrl',
       });
     }
     const newParty = {
