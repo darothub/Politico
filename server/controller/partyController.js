@@ -8,7 +8,11 @@ class Party {
     if (!Helper.isParty(request)) {
       res.status(400).json({
         status: 400,
+<<<<<<< HEAD
         error: 'Invalid name/hqAddress/logoUrl',
+=======
+        error: 'Invalid name/hqAddress/logo',
+>>>>>>> travis set up
       });
     }
     const newParty = {
