@@ -8,7 +8,7 @@ class Office {
     if (!Helper.isOffice(request)) {
       res.status(400).json({
         status: 400,
-        error: 'Invalid data post',
+        error: 'Invalid office name/type',
       });
     }
     const newOffice = {

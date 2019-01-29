@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "mocha --compilers js:@babel/register test/*.spec.js --exit",
-    "start": "nodemon --exec babel-node app/app.js",
+    "test": "mocha --compilers js:@babel/register server/test/*.spec.js --exit",
+    "start": "nodemon --exec babel-node server/app/app.js",
     "build": "babel app --out-dir lib",
     "serve": "node lib/app.js"
   },
@@ -34,8 +34,6 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.15.0",
     "mocha": "^5.2.0",
-    "nodemon": "^1.18.9",
-    "webpack": "^4.29.0",
-    "webpack-dev-server": "^3.1.14"
+    "nodemon": "^1.18.9"
   }
 }
