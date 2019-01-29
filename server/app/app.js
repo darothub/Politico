@@ -21,7 +21,7 @@ app.use(partyRoutes);
 app.use(officeRoutes);
 
 app.get('/', (req, res) => {
-  res.json = ({
+  res.status(200).json ({
     status: 200,
     message: 'Hello World',
   });
@@ -34,8 +34,7 @@ app.use((req, res, next) => {
 });
 
 app.use((error, req, res, next) => {
-  res.status(error.status || 500);
-  res.json({
+  res.status(error.status || 500).json({
     status: error.status,
     message: error.message,
   });
