@@ -21,7 +21,7 @@ app.use(partyRoutes);
 app.use(officeRoutes);
 
 app.get('/', (req, res) => {
-  res.json = ({
+  res.status(200).json({
     status: 200,
     message: 'Hello World',
   });

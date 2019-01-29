@@ -9,9 +9,13 @@ class Party {
       res.status(400).json({
         status: 400,
 <<<<<<< HEAD
+<<<<<<< HEAD
         error: 'Invalid name/hqAddress/logoUrl',
 =======
         error: 'Invalid name/hqAddress/logo',
+>>>>>>> travis set up
+=======
+        error: 'Invalid name/hqAddress/logoUrl',
 >>>>>>> travis set up
       });
     }
