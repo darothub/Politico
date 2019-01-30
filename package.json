@@ -2,11 +2,11 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "server/app/app.js",
+  "main": "app.js",
   "scripts": {
     "test": "nyc mocha --compilers js:@babel/register server/test/*.spec.js --exit",
     "start:dev": "babel-node server/app/app.js",
-    "start": "npm run build && npm run serve",
+    "start": "node --exec babel-node server/app/app.js",
     "build": "babel server -d lib",
     "serve": "node lib/app/app.js",
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
