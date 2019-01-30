@@ -5,9 +5,10 @@
   "main": "app.js",
   "scripts": {
     "test": "nyc mocha --compilers js:@babel/register server/test/*.spec.js --exit",
-    "start": "nodemon --exec babel-node server/app/app.js",
-    "build": "babel app --out-dir lib",
-    "serve": "node lib/app.js",
+    "start:dev": "babel-node server/app/app.js",
+    "start": "npm run build && npm run serve",
+    "build": "babel server --out-dir lib",
+    "serve": "node lib/app/app.js",
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "author": "darot",
