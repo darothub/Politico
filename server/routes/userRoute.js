@@ -4,7 +4,7 @@ import Test from '../controller/userController';
 
 const router = express.Router();
 
-const versionedapi = '/api/v1/offices/';
+const versionedapi = '/api/v1/parties/';
 
 // router.post(`${versionedapi}`, Office.createOffice);
 router.get(`${versionedapi}`, Test.getAllParties);
