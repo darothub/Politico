@@ -1,4 +1,8 @@
+import dotenv from 'dotenv';
+
 import pool from '../model/database';
+
+dotenv.config();
 
 class Test {
   static getAllParties(req, res) {

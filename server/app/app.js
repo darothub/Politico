@@ -11,7 +11,7 @@ import officeRoutes from '../routes/office';
 import userRoute from '../routes/userRoute';
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 
 app.use(morgan('dev'));
