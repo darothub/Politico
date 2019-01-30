@@ -8,6 +8,8 @@ import partyRoutes from '../routes/party';
 
 import officeRoutes from '../routes/office';
 
+import userRoute from '../routes/userRoute';
+
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -19,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(partyRoutes);
 app.use(officeRoutes);
+app.use(userRoute);
 
 app.get('/', (req, res) => {
   res.status(200).json({
