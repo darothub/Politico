@@ -6,7 +6,7 @@
   "scripts": {
     "test": "nyc mocha --compilers js:@babel/register server/test/*.spec.js --exit",
     "start:dev": "babel-node server/app/app.js",
-    "start": "npm run build && npm run serve",
+    "start": "npm run build && npm run start:dev",
     "build": "babel server --out-dir lib",
     "serve": "node lib/app/app.js",
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
