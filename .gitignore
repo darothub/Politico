@@ -1,6 +1,6 @@
 node_modules/
-lib
-.nyc_output
-coverage
+/lib
+.nyc_output/
+coverage/
 .env
-server/db
+server/db/
