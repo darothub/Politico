@@ -9,7 +9,11 @@ import partyRoutes from '../routes/party';
 import officeRoutes from '../routes/office';
 
 const app = express();
+<<<<<<< HEAD
 const PORT = process.env.PORT || 3000;
+=======
+const PORT = process.env.PORT || 8080;
+>>>>>>> 13f07adb1a9ceb94ab9b748d34fce7e8acaed849
 
 
 app.use(morgan('dev'));
