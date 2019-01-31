@@ -10,7 +10,10 @@
     "heroku": "node server/app/app.js",
     "build": "babel server -d lib",
     "serve": "node lib/app/app.js",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov | coveralls",
+    "migration": "psql -U postgres -p 5433 -f server/model/table.sql",
+    "seed": "babel-node server/model/seeding.js",
+    "data:dev": "npm run migration && npm run seed"
   },
   "author": "darot",
   "license": "ISC",
