@@ -7,8 +7,8 @@ const router = express.Router();
 
 const versionedapi = '/auth/';
 
-
 router.post(`${versionedapi}signup`, User.signup);
+router.post(`${versionedapi}signin`, User.signin);
 
 
 export default router;
