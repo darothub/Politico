@@ -60,7 +60,7 @@ class User {
               }, process.env.SECRET_KEY, {
                 expiresIn: '24h',
               });
-              res.status(201).send({
+              res.status(201).json({
                 status: 201,
                 data: [token, user.rows[0].first_name, user.rows[0].last_name,
                   user.rows[0].other_name, user.rows[0].passport_url, user.rows[0].email],
@@ -68,6 +68,48 @@ class User {
             }
           })
           .catch(e => res.send(e));
+      })
+      .catch(e => res.send(e));
+  }
+
+  static signin(req, res) {
+    // const { username, email, password } = req.body;
+    const selQuery = {
+      text: 'SELECT * FROM users WHERE email=$1',
+      values: [req.body.email],
+    };
+    if (!Helper.isValidEmailPassword(req.body)) {
+      return res.status(400).json({
+        status: 400,
+        message: 'Invalid email/password',
+      });
+    }
+    return pool.query(selQuery)
+      .then((data) => {
+        if (data.rowCount === 0) {
+          return res.status(404).json({
+            status: 404,
+            message: 'User not found',
+          });
+        }
+        if (bcrypt.compareSync(req.body.password, data.rows[0].password)) {
+          const token = jwt.sign({
+            id: data.rows[0].id,
+            email: data.rows[0].email,
+            isAdmin: data.rows[0].isAdmin,
+          }, process.env.SECRET_KEY, {
+            expiresIn: '24h',
+          });
+          res.status(201).json({
+            status: 201,
+            data: [token, data.rows[0].email],
+            message: 'You have successfully signed in',
+          });
+        }
+        return res.status(401).json({
+          status: 401,
+          message: 'Unauthorised access',
+        });
       })
       .catch(e => res.send(e));
   }
