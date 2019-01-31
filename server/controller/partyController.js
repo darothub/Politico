@@ -1,4 +1,4 @@
-// import pool from '../model/database';
+import pool from '../model/database';
 
 import parties from '../db/dummy';
 
@@ -27,9 +27,20 @@ class Party {
   }
 
   static getAllParties(req, res) {
+<<<<<<< HEAD
     return res.status(200).json({
       status: 200,
       data: parties,
+=======
+    pool.query('SELECT * FROM users', (error, results) => {
+      if (error) {
+        throw error;
+      }
+      return res.status(200).json({
+        status: 200,
+        data: results.rows,
+      });
+>>>>>>> user can signup
     });
   }
 
