@@ -27,4 +27,3 @@ pool.query(query)
 // pool.query(partyQuery)
 //   .then(console.log('New party created'))
 //   .catch(e => console.error(e.stack));
-export default pool;
