@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "politico",
   "main": "app.js",
   "scripts": {
     "test": "mocha --compilers js:@babel/register server/test/*.spec.js --exit",
