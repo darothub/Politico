@@ -4,13 +4,13 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "nyc mocha --compilers js:@babel/register server/test/*.spec.js --exit",
+    "test": "NODE_ENV=test nyc mocha --compilers js:@babel/register server/test/*.spec.js --exit",
     "start:dev": "babel-node server/app/app.js",
     "start": "nodemon --exec babel-node server/app/app.js",
     "heroku": "node server/app/app.js",
     "build": "babel server -d lib",
     "serve": "node lib/app/app.js",
-    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "author": "darot",
   "license": "ISC",
