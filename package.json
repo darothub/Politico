@@ -10,7 +10,7 @@
     "heroku": "node server/app/app.js",
     "build": "babel server -d lib",
     "serve": "node lib/app/app.js",
-    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov | coveralls"
   },
   "author": "darot",
   "license": "ISC",
