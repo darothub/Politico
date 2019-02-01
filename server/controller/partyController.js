@@ -26,6 +26,13 @@ class Party {
     });
   }
 
+  static getAllParties(req, res) {
+    return res.status(200).json({
+      status: 200,
+      data: parties,
+    });
+  }
+
   // static getAllParties(req, res) {
   //   pool.query('SELECT * FROM party', (error, results) => {
   //     if (error) {
