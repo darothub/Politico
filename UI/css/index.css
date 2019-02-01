@@ -5,7 +5,10 @@
 html, body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 100%;
+<<<<<<< HEAD
     overflow-x: hidden;
+=======
+>>>>>>> 5e6bfb0b2279ddad8ca35632be05c3bd0926b124
     
 }
 a, ul, li{
@@ -95,7 +98,11 @@ nav>h1{
     font-weight:30px;
     
 }
+<<<<<<< HEAD
 .banner #sign-up{
+=======
+.banner #log-in{
+>>>>>>> 5e6bfb0b2279ddad8ca35632be05c3bd0926b124
     background-color: #14AF22;
    
 }
@@ -177,6 +184,7 @@ footer{
         grid-area: nav;
         
     }
+<<<<<<< HEAD
     nav>h1{
         float: left;
     }
@@ -185,6 +193,8 @@ footer{
         width: auto;
         margin-right: 20px;
     }
+=======
+>>>>>>> 5e6bfb0b2279ddad8ca35632be05c3bd0926b124
     .content-container{
         grid-area: content;
     }
@@ -255,11 +265,14 @@ footer{
         grid-area: nav;
         
     }
+<<<<<<< HEAD
     nav>.nav-list-container{
         float:right;
         width: auto;
         margin-right: 95px;
     }
+=======
+>>>>>>> 5e6bfb0b2279ddad8ca35632be05c3bd0926b124
     .content-container{
         grid-area: content;
     }
@@ -338,6 +351,7 @@ footer{
         color: #fff;
         background-color: #14AF22;
     }
+<<<<<<< HEAD
 }
 
 @media only screen and (min-width:1024px){
@@ -346,4 +360,6 @@ footer{
         width: auto;
         margin-right: 190px;
     }
+=======
+>>>>>>> 5e6bfb0b2279ddad8ca35632be05c3bd0926b124
 }
