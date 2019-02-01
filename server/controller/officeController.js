@@ -40,20 +40,21 @@ class Office {
 
   static addNewCandidate(req, res) {
     const decoded = jwt.verify(req.token, process.env.SECRET_KEY);
-    const { officeId, partyId, candidateId } = req.body;
+    const { officeId, partyId } = req.body;
+    const { userId } = req.params;
 
     const selQuery1 = {
-      text: 'SELECT * FROM users WHERE id =$1',
-      values: [req.params.id],
+      text: 'SELECT * FROM users WHERE user_id =$1',
+      values: [userId],
     };
 
     const selQuery2 = {
       text: 'SELECT * FROM candidates WHERE candidate =$1 AND office =$2',
-      values: [req.params.id, officeId],
+      values: [userId, officeId],
     };
     const insQuery = {
       text: 'INSERT INTO candidates (office, party, candidate) VALUES($1, $2, $3) RETURNING *',
-      values: [officeId, partyId, candidateId],
+      values: [officeId, partyId, userId],
     };
     if (!Helper.isCandidate(req.body)) {
       return res.status(400).json({
