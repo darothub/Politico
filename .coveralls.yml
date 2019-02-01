@@ -1,2 +1,2 @@
-repo_token: muMbudd9eqwOyYuOsDodXB8udA9fIu9hF
+service_name: travis-ci
 gem 'coveralls', require: false
