@@ -15,7 +15,7 @@ class User {
     const {
       firstName, lastName, otherName, email, phoneNumber, passportUrl, password,
     } = req.body;
-    const reqQuery = {
+    const selQuery = {
       text: 'SELECT * FROM users WHERE email=$1',
       values: [email],
     };
@@ -42,7 +42,7 @@ class User {
         message: 'Invalid phone number',
       });
     }
-    return pool.query(reqQuery)
+    return pool.query(selQuery)
       .then((data) => {
         if (data.rowCount === 1) {
           return res.status(409).send({
@@ -56,14 +56,15 @@ class User {
               const token = jwt.sign({
                 id: user.rows[0].id,
                 email: user.rows[0].email,
-                isAdmin: user.rows[0].isAdmin,
+                isAdmin: user.rows[0].is_admin,
               }, process.env.SECRET_KEY, {
                 expiresIn: '24h',
               });
               res.status(201).json({
                 status: 201,
-                data: [token, user.rows[0].first_name, user.rows[0].last_name,
-                  user.rows[0].other_name, user.rows[0].passport_url, user.rows[0].email],
+                data: [token, user.rows[0].id, user.rows[0].first_name, user.rows[0].last_name,
+                  user.rows[0].other_name, user.rows[0].passport_url, user.rows[0].email,
+                  user.rows[0].is_admin],
               });
             }
           })
@@ -96,13 +97,13 @@ class User {
           const token = jwt.sign({
             id: data.rows[0].id,
             email: data.rows[0].email,
-            isAdmin: data.rows[0].isAdmin,
+            is_admin: data.rows[0].is_admin,
           }, process.env.SECRET_KEY, {
             expiresIn: '24h',
           });
           res.status(201).json({
             status: 201,
-            data: [token, data.rows[0].email],
+            data: [token, data.rows[0]],
             message: 'You have successfully signed in',
           });
         }
