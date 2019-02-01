@@ -1,7 +1,5 @@
 import dotenv from 'dotenv';
 
-import jwt from 'jsonwebtoken';
-
 dotenv.config();
 
 class Helper {
@@ -13,6 +11,13 @@ class Helper {
     const validLogoUrl = typeof newParty.logoUrl === 'string'
                                         && newParty.logoUrl.trim() !== '';
     return validName && validHqAdress && validLogoUrl;
+  }
+
+  static isCandidate(newCandidate) {
+    const validOfficeId = /^-?[\d.]+(?:e-?\d+)?$/.test(newCandidate.officeId);
+    const validPartyId = /^-?[\d.]+(?:e-?\d+)?$/.test(newCandidate.partyId);
+
+    return validOfficeId && validPartyId;
   }
 
   static isOffice(newOffice) {
@@ -39,23 +44,10 @@ class Helper {
     return validFirstName && validLastName && validOtherName;
   }
 
-  static isValidPhoneNumber(user) {
-    const validPhoneNumber = typeof user.phoneNumber === 'string';
-    return validPhoneNumber;
-  }
-
-  static verifyToken(req, res, next) {
-    const tokenHeader = req.headers.authorization;
-    if (typeof tokenHeader !== 'undefined') {
-      const tokenBearer = tokenHeader.split(' ');
-      const bearerToken = tokenBearer[1];
-      req.token = bearerToken;
-      const decoded = jwt.verify(req.token, process.env.SECRET_KEY);
-      req.userData = decoded;
-      next();
-    } else {
-      res.status(403);
-    }
+  static isValidUserNumber(user) {
+    const validPhoneNumber = /^-?[\d.]+(?:e-?\d+)?$/.test(user.phoneNumber);
+    const validUserId = /^-?[\d.]+(?:e-?\d+)?$/.test(user.userId);
+    return validPhoneNumber && validUserId;
   }
 }
 
