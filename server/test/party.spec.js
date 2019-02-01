@@ -152,3 +152,61 @@ describe('GET /api/v1/parties', () => {
     done();
   });
 });
+
+describe('GET /api/v1/parties/:id', () => {
+  it('should return party for the given id', (done) => {
+    chai.request(server)
+      .get('/api/v1/parties/1')
+      .end((err, res) => {
+        res.should.to.have.status(200);
+        assert.isOk(res.body);
+        assert.isNumber(res.body.data.id);
+        assert.nestedProperty(res.body, 'data.id');
+        assert.propertyVal(res.body.data, 'id', 1);
+      });
+    done();
+  });
+  it('should return error for the unknown id', (done) => {
+    chai.request(server)
+      .get('/api/v1/parties/0')
+      .end((err, res) => {
+        res.should.to.have.status(404);
+        assert.isOk(res.body);
+        assert.propertyVal(res.body, 'status', 404);
+        assert.propertyVal(res.body, 'data', 'resource not found');
+      });
+    done();
+  });
+});
+
+describe('PATCH/api/v1/parties/:id/name', () => {
+  it('should edit name of the party with given id', (done) => {
+    const data = {
+      name: 'APGC',
+    };
+    chai.request(server)
+      .patch('/api/v1/parties/1/name')
+      .type('form')
+      .send(data)
+      .end((err, res) => {
+        res.should.to.have.status(200);
+        assert.isOk(res.body);
+        assert.nestedProperty(res.body, 'data.id');
+        assert.propertyVal(res.body.data, 'name', 'APGC');
+      });
+    done();
+  });
+});
+
+describe('DELETE/api/v1/parties/:id', () => {
+  it('should delete the party with given id', (done) => {
+    chai.request(server)
+      .delete('/api/v1/parties/1/')
+      .end((err, res) => {
+        res.should.to.have.status(200);
+        assert.isOk(res.body);
+        assert.nestedProperty(res.body.data, 'message');
+      });
+    done();
+  });
+});
