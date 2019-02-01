@@ -16,9 +16,8 @@ class Helper {
   static isCandidate(newCandidate) {
     const validOfficeId = /^-?[\d.]+(?:e-?\d+)?$/.test(newCandidate.officeId);
     const validPartyId = /^-?[\d.]+(?:e-?\d+)?$/.test(newCandidate.partyId);
-    const validCandidateId = /^-?[\d.]+(?:e-?\d+)?$/.test(newCandidate.candidateId);
 
-    return validOfficeId && validPartyId && validCandidateId;
+    return validOfficeId && validPartyId;
   }
 
   static isOffice(newOffice) {
@@ -45,9 +44,10 @@ class Helper {
     return validFirstName && validLastName && validOtherName;
   }
 
-  static isValidPhoneNumber(user) {
-    const validPhoneNumber = typeof user.phoneNumber === 'string';
-    return validPhoneNumber;
+  static isValidUserNumber(user) {
+    const validPhoneNumber = /^-?[\d.]+(?:e-?\d+)?$/.test(user.phoneNumber);
+    const validUserId = /^-?[\d.]+(?:e-?\d+)?$/.test(user.userId);
+    return validPhoneNumber && validUserId;
   }
 }
 

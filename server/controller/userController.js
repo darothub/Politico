@@ -13,15 +13,15 @@ dotenv.config();
 class User {
   static signup(req, res) {
     const {
-      firstName, lastName, otherName, email, phoneNumber, passportUrl, password,
+      userId, firstName, lastName, otherName, email, phoneNumber, passportUrl, password,
     } = req.body;
     const selQuery = {
       text: 'SELECT * FROM users WHERE email=$1',
       values: [email],
     };
     const insQuery = {
-      text: 'INSERT INTO users(first_name, last_name, other_name, email, phone_number, passport_url, password) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *',
-      values: [firstName, lastName, otherName, email, phoneNumber, passportUrl,
+      text: 'INSERT INTO users(user_id, first_name, last_name, other_name, email, phone_number, passport_url, password) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
+      values: [userId, firstName, lastName, otherName, email, phoneNumber, passportUrl,
         bcrypt.hashSync(password, 10)],
     };
     if (!Helper.isValidEmailPassword(req.body)) {
@@ -36,10 +36,10 @@ class User {
         message: 'Invalid firstName/lastName/otherName',
       });
     }
-    if (!Helper.isValidPhoneNumber(req.body)) {
+    if (!Helper.isValidUserNumber(req.body)) {
       return res.status(400).json({
         status: 400,
-        message: 'Invalid phone number',
+        message: 'Invalid user ID/phone number',
       });
     }
     return pool.query(selQuery)
@@ -62,7 +62,7 @@ class User {
               });
               res.status(201).json({
                 status: 201,
-                data: [token, user.rows[0].id, user.rows[0].first_name, user.rows[0].last_name,
+                data: [token, user.rows[0].user_id, user.rows[0].first_name, user.rows[0].last_name,
                   user.rows[0].other_name, user.rows[0].passport_url, user.rows[0].email,
                   user.rows[0].is_admin],
               });
