@@ -4,10 +4,13 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "mocha --compilers js:@babel/register server/test/*.spec.js --exit",
+    "test": "nyc mocha --compilers js:@babel/register server/test/*.spec.js --exit",
+    "start:dev": "babel-node server/app/app.js",
     "start": "nodemon --exec babel-node server/app/app.js",
-    "build": "babel app --out-dir lib",
-    "serve": "node lib/app.js"
+    "heroku": "node server/app/app.js",
+    "build": "babel server -d lib",
+    "serve": "node lib/app/app.js",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "author": "darot",
   "license": "ISC",
@@ -15,7 +18,8 @@
     "body-parser": "^1.18.3",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "pg": "^7.8.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -30,10 +34,15 @@
     "babel-register": "^6.26.0",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
+    "codecov": "^3.1.0",
+    "coveralls": "^3.0.2",
     "eslint": "^5.12.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.15.0",
+    "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "nyc": "^13.1.0",
+    "travis": "^0.1.1"
   }
 }
