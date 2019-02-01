@@ -1,5 +1,3 @@
-import pool from '../model/database';
-
 import parties from '../db/dummy';
 
 import Helper from '../helper/util';
@@ -27,14 +25,9 @@ class Party {
   }
 
   static getAllParties(req, res) {
-    pool.query('SELECT * FROM users', (error, results) => {
-      if (error) {
-        throw error;
-      }
-      return res.status(200).json({
-        status: 200,
-        data: results.rows,
-      });
+    return res.status(200).json({
+      status: 200,
+      data: parties,
     });
   }
 
