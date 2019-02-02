@@ -38,3 +38,4 @@ CREATE TABLE candidates(
 INSERT INTO offices(office_id, name, type) VALUES('901', 'President', 'Federal'),('902', 'Senator', 'Federal');
 INSERT INTO parties(party_id, name, hqAddress, logoUrl) VALUES('91', 'APC', '1, APC avenue', 'www.apc.com.jpg'),
 ('92', 'APGA', '1, APGA avenue', 'www.apga.com.jpg');
+

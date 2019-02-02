@@ -13,6 +13,7 @@ dotenv.config();
 class User {
   static signup(req, res) {
     const {
+
       userId, firstName, lastName, otherName, email, phoneNumber, passportUrl, password,
     } = req.body;
     const selQuery = {
@@ -36,6 +37,7 @@ class User {
         message: 'Invalid firstName/lastName/otherName',
       });
     }
+
     if (!Helper.isValidUserNumber(req.body)) {
       return res.status(400).json({
         status: 400,
@@ -62,6 +64,7 @@ class User {
               });
               res.status(201).json({
                 status: 201,
+
                 data: [token, user.rows[0].user_id, user.rows[0].first_name, user.rows[0].last_name,
                   user.rows[0].other_name, user.rows[0].passport_url, user.rows[0].email,
                   user.rows[0].is_admin],
@@ -97,13 +100,14 @@ class User {
           const token = jwt.sign({
             id: data.rows[0].id,
             email: data.rows[0].email,
+
             is_admin: data.rows[0].is_admin,
           }, process.env.SECRET_KEY, {
             expiresIn: '24h',
           });
           res.status(201).json({
             status: 201,
-            data: [token, data.rows[0]],
+            data: [token, data.rows[0].email],
             message: 'You have successfully signed in',
           });
         }

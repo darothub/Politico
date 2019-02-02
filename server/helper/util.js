@@ -1,5 +1,7 @@
 import dotenv from 'dotenv';
 
+import jwt from 'jsonwebtoken';
+
 dotenv.config();
 
 class Helper {
@@ -43,11 +45,11 @@ class Helper {
                                         && user.otherName.trim() !== '';
     return validFirstName && validLastName && validOtherName;
   }
-
   static isValidUserNumber(user) {
     const validPhoneNumber = /^-?[\d.]+(?:e-?\d+)?$/.test(user.phoneNumber);
     const validUserId = /^-?[\d.]+(?:e-?\d+)?$/.test(user.userId);
     return validPhoneNumber && validUserId;
+
   }
 }
 
