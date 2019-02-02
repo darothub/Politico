@@ -15,14 +15,14 @@ CREATE TABLE users(
 );
 CREATE TABLE parties(
     id SERIAL,
-    party_id INTEGER PRIMARY KEY,
+    party_id INTEGER NOT NULL PRIMARY KEY,
     name VARCHAR NOT NULL,
     hqAddress VARCHAR NOT NULL,
     logoUrl VARCHAR NOT NULL
 );
 CREATE TABLE offices(
     id SERIAL,
-    office_id INTEGER PRIMARY KEY,
+    office_id INTEGER NOT NULL PRIMARY KEY,
     name VARCHAR NOT NULL,
     type VARCHAR NOT NULL
 );
@@ -34,6 +34,12 @@ CREATE TABLE candidates(
     candidate INTEGER REFERENCES users(user_id)
 );
 
+CREATE TABLE votes(
+    id SERIAL,
+    office INTEGER NOT NULL REFERENCES offices(office_id),
+    candidate INTEGER NOT NULL,
+    voter INTEGER REFERENCES users(user_id)
+);
 
 INSERT INTO offices(office_id, name, type) VALUES('901', 'President', 'Federal'),('902', 'Senator', 'Federal');
 INSERT INTO parties(party_id, name, hqAddress, logoUrl) VALUES('91', 'APC', '1, APC avenue', 'www.apc.com.jpg'),

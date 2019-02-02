@@ -16,9 +16,13 @@ class User {
 
       userId, firstName, lastName, otherName, email, phoneNumber, passportUrl, password,
     } = req.body;
-    const selQuery = {
+    const selQuery1 = {
       text: 'SELECT * FROM users WHERE email=$1',
       values: [email],
+    };
+    const selQuery2 = {
+      text: 'SELECT * FROM users WHERE user_id =$1',
+      values: [userId],
     };
     const insQuery = {
       text: 'INSERT INTO users(user_id, first_name, last_name, other_name, email, phone_number, passport_url, password) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
@@ -44,7 +48,7 @@ class User {
         message: 'Invalid user ID/phone number',
       });
     }
-    return pool.query(selQuery)
+    return pool.query(selQuery1)
       .then((data) => {
         if (data.rowCount === 1) {
           return res.status(409).send({
@@ -52,24 +56,34 @@ class User {
             message: 'Email address has already been used',
           });
         }
-        return pool.query(insQuery)
+        return pool.query(selQuery2)
           .then((user) => {
-            if (user) {
-              const token = jwt.sign({
-                id: user.rows[0].id,
-                email: user.rows[0].email,
-                isAdmin: user.rows[0].is_admin,
-              }, process.env.SECRET_KEY, {
-                expiresIn: '24h',
-              });
-              res.status(201).json({
-                status: 201,
-
-                data: [token, user.rows[0].user_id, user.rows[0].first_name, user.rows[0].last_name,
-                  user.rows[0].other_name, user.rows[0].passport_url, user.rows[0].email,
-                  user.rows[0].is_admin],
+            if (user.rowCount === 1) {
+              return res.status(409).send({
+                status: 409,
+                message: 'User ID is invalid',
               });
             }
+            return pool.query(insQuery)
+              .then((userData) => {
+                if (userData) {
+                  const token = jwt.sign({
+                    id: user.rows[0].id,
+                    email: user.rows[0].email,
+                    isAdmin: user.rows[0].is_admin,
+                  }, process.env.SECRET_KEY, {
+                    expiresIn: '24h',
+                  });
+                  res.status(201).json({
+                    status: 201,
+
+                    data: [token, user.rows[0].user_id, user.rows[0].first_name, user.rows[0].last_name,
+                      user.rows[0].other_name, user.rows[0].passport_url, user.rows[0].email,
+                      user.rows[0].is_admin],
+                  });
+                }
+              })
+              .catch(e => res.send(e));
           })
           .catch(e => res.send(e));
       })
