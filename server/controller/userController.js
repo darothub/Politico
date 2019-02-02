@@ -76,9 +76,9 @@ class User {
                   });
                   res.status(201).json({
                     status: 201,
-
-                    data: [token, user.rows[0].user_id, user.rows[0].first_name, user.rows[0].last_name,
-                      user.rows[0].other_name, user.rows[0].passport_url, user.rows[0].email,
+                    data: [token, user.rows[0].user_id, user.rows[0].first_name,
+                      user.rows[0].last_name, user.rows[0].other_name,
+                      user.rows[0].passport_url, user.rows[0].email,
                       user.rows[0].is_admin],
                   });
                 }
