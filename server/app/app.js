@@ -39,8 +39,18 @@ app.use((req, res, next) => {
   next(error);
 });
 
+
 app.use((error, req, res, next) => {
-  res.status(error.status || 500).json({
+  if (error.message === 'jwt must be provided') {
+    res.status(401).json({
+      status: 401,
+      message: 'You are not authorized',
+    });
+  }
+  next();
+});
+app.use((error, req, res, next) => {
+  res.sendStatus(error.status || 500).json({
     status: error.status,
     message: error.message,
   });

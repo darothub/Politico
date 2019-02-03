@@ -4,7 +4,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const pool = new pg.Pool({
+let connection;
+const string = {
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
   database: process.env.DB_NAME,
@@ -12,6 +13,26 @@ const pool = new pg.Pool({
   port: process.env.DB_PORT,
   max: 10,
   idleTimeoutMillis: 3000,
-});
+};
+const stringTest = {
+  user: process.env.DB_USER2,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME2,
+  password: process.env.DB_PASS,
+  port: process.env.DB_PORT,
+  max: 10,
+  idleTimeoutMillis: 3000,
+};
+if (process.env.NODE_ENV === 'production') {
+  connection = {
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
+  };
+} else if (process.env.NODE_ENV === 'test') {
+  connection = stringTest;
+} else {
+  connection = string;
+}
+const pool = new pg.Pool(connection);
 
 export default pool;
