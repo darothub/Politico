@@ -4,14 +4,14 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "nyc mocha --compilers js:@babel/register server/test/*.spec.js --exit",
+    "test": "set NODE_ENV=test && nyc mocha --compilers js:@babel/register server/test/*.spec.js --exit",
     "start:dev": "npm run build && npm run serve",
     "start": "nodemon --exec babel-node server/app/app.js",
     "heroku": "node server/app/app.js",
     "build": "babel server -d lib",
     "serve": "node lib/app/app.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "migration": "psql -U postgres -p 5433 -f server/model/table.sql",
+    "migration": "psql -U darot -p 5433 -f server/model/table.sql",
     "seed": "babel-node server/model/seeding.js",
     "data:dev": "npm run migration && npm run seed"
   },
