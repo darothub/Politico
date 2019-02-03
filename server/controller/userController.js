@@ -68,18 +68,18 @@ class User {
               .then((userData) => {
                 if (userData) {
                   const token = jwt.sign({
-                    id: user.rows[0].id,
-                    email: user.rows[0].email,
-                    isAdmin: user.rows[0].is_admin,
+                    id: userData.rows[0].user_id,
+                    email: userData.rows[0].email,
+                    isAdmin: userData.rows[0].is_admin,
                   }, process.env.SECRET_KEY, {
                     expiresIn: '24h',
                   });
                   res.status(201).json({
                     status: 201,
-                    data: [token, user.rows[0].user_id, user.rows[0].first_name,
-                      user.rows[0].last_name, user.rows[0].other_name,
-                      user.rows[0].passport_url, user.rows[0].email,
-                      user.rows[0].is_admin],
+                    data: [token, userData.rows[0].user_id, userData.rows[0].first_name,
+                      userData.rows[0].last_name, userData.rows[0].other_name,
+                      userData.rows[0].passport_url, userData.rows[0].email,
+                      userData.rows[0].is_admin],
                   });
                 }
               })
@@ -119,8 +119,8 @@ class User {
           }, process.env.SECRET_KEY, {
             expiresIn: '24h',
           });
-          res.status(201).json({
-            status: 201,
+          res.status(200).json({
+            status: 200,
             data: [token, data.rows[0].email],
             message: 'You have successfully signed in',
           });

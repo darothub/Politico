@@ -95,6 +95,20 @@ class Office {
       })
       .catch(e => res.send(e));
   }
+
+  static getOfficeResult(req, res) {
+    const { officeId } = req.params;
+    const selQuery = {
+      text: 'SELECT office, candidate, COUNT(*) AS "result" FROM votes WHERE office=$1 GROUP BY office, candidate',
+      values: [officeId],
+    };
+    return pool.query(selQuery)
+      .then(result => res.status(200).json({
+        status: 200,
+        data: result.rows,
+      }))
+      .catch(e => res.send(e));
+  }
 }
 
 export default Office;
