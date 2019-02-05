@@ -15,14 +15,17 @@ addons:
     repo_token: 2f9a14edb203c6cd763f640f4051fbd78fea5e29b938dd4064f9f80805e19ac2
   
 env:
-  - NODE_ENV=test
-    
+   global:
+    - DB_HOST=localhost
+    - DB_USER= postgres
+    - DB_NAME = testpolitico
 before_script:
   - npm -g install nyc
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
   - psql -c 'create database travis_ci_test;' -U postgres
+  - npm run data:dev
 after_script:
   - codeclimate-test-reporter < ./coverage/lcov.info
 

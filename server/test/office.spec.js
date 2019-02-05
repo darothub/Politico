@@ -19,7 +19,7 @@ chai.use(chaiHttp);
 const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0b3NpbkB5YWhvby5jb20iLCJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNTQ5Mzc0NjE2LCJleHAiOjE1NDk0NjEwMTZ9.xeR9QBD8aFUzV0k2DckmktEPE6jLNIgP_DnDHmAGeQw';
 
 describe('POST/api/v1/offices', () => {
-  it('should return 200 for new office', (done) => {
+  it('should return 201 for new office', (done) => {
     const newOffice = {
       name: 'Vice President',
       type: 'Federal',
