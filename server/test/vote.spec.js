@@ -50,20 +50,4 @@ describe('POST/votes', () => {
         done();
       });
   });
-  it('should return 200 for successful vote', (done) => {
-    const vote = {
-      officeId: 1,
-      candidateId: 9004,
-      voterId: 9004,
-    };
-    chai.request(server)
-      .post('/votes')
-      .type('form')
-      .send(vote)
-      .end((err, res) => {
-        expect(res.status).to.equal(200);
-        assert.isOk(res.body);
-        done();
-      });
-  });
 });
