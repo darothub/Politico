@@ -4,11 +4,13 @@ import bodyParser from 'body-parser';
 
 import morgan from 'morgan';
 
-import partyRoutes from '../routes/party';
+import partyRoutes from '../routes/partyRoute';
 
-import officeRoutes from '../routes/office';
+import officeRoutes from '../routes/officeRoute';
 
 import userRoute from '../routes/userRoute';
+
+import voteRoute from '../routes/voteRoute';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -22,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(partyRoutes);
 app.use(officeRoutes);
 app.use(userRoute);
+app.use(voteRoute);
 
 app.get('/', (req, res) => {
   res.status(200).json({

@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 
-import jwt from 'jsonwebtoken';
+// import jwt from 'jsonwebtoken';
 
 dotenv.config();
 
@@ -20,6 +20,13 @@ class Helper {
     const validPartyId = /^-?[\d.]+(?:e-?\d+)?$/.test(newCandidate.partyId);
 
     return validOfficeId && validPartyId;
+  }
+
+  static isVote(vote) {
+    const validOfficeId = /^-?[\d.]+(?:e-?\d+)?$/.test(vote.officeId);
+    const validVoterId = /^-?[\d.]+(?:e-?\d+)?$/.test(vote.voterId);
+    const validCandidateId = /^-?[\d.]+(?:e-?\d+)?$/.test(vote.candidateId);
+    return validOfficeId && validVoterId && validCandidateId;
   }
 
   static isOffice(newOffice) {
@@ -45,11 +52,11 @@ class Helper {
                                         && user.otherName.trim() !== '';
     return validFirstName && validLastName && validOtherName;
   }
+
   static isValidUserNumber(user) {
     const validPhoneNumber = /^-?[\d.]+(?:e-?\d+)?$/.test(user.phoneNumber);
     const validUserId = /^-?[\d.]+(?:e-?\d+)?$/.test(user.userId);
     return validPhoneNumber && validUserId;
-
   }
 }
 
