@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+process.env.NODE_ENV = 'test';
+
 let connection;
 const string = {
   user: process.env.DB_USER,
@@ -15,7 +17,7 @@ const string = {
   idleTimeoutMillis: 3000,
 };
 const stringTest = {
-  user: process.env.DB_USER2,
+  user: process.env.DB_USER,
   host: process.env.DB_HOST,
   database: process.env.DB_NAME2,
   password: process.env.DB_PASS,

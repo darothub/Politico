@@ -9,7 +9,7 @@ const router = express.Router();
 const versionedapi = '/api/v1/offices/';
 const versionedapi2 = '/office/:userId/';
 
-router.post(`${versionedapi}`, Office.createOffice);
+router.post(`${versionedapi}`, checkAuth, Office.createOffice);
 router.get(`${versionedapi}`, Office.getAllOffices);
 // router.get(`${versionedapi}:id`, Party.getPartyById);
 // router.patch(`${versionedapi}:id/name`, Party.editPartyName);

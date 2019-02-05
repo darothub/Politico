@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 
 import pool from '../model/database';
 
-import offices from '../db/officeDummy';
+// import offices from '../db/officeDummy';
 
 import Helper from '../helper/util';
 
@@ -12,31 +12,83 @@ dotenv.config();
 
 class Office {
   static createOffice(req, res) {
-    const request = req.body;
-    if (!Helper.isOffice(request)) {
+    const decoded = jwt.verify(req.token, process.env.SECRET_KEY);
+    const { name, type } = req.body;
+    const selQuery = {
+      text: 'SELECT * FROM offices WHERE name=$1',
+      values: [name],
+    };
+    const insQuery = {
+      text: 'INSERT INTO offices(name, type) VALUES($1, $2) RETURNING *',
+      values: [name, type],
+    };
+
+    if (!Helper.isOffice(req.body)) {
       res.status(400).json({
         status: 400,
-        error: 'Invalid office name/type',
+        error: 'Invalid name/type',
       });
     }
-    const newOffice = {
-      id: offices.length + 1,
-      name: request.name,
-      type: request.type,
-    };
-    offices.push(newOffice);
-    return res.status(201).json({
-      status: 201,
-      data: newOffice,
-    });
+    return pool.query(selQuery)
+      .then((office) => {
+        if (office.rowCount === 1) {
+          return res.status(409).send({
+            status: 409,
+            message: 'Office exist already',
+          });
+        }
+        if (decoded.is_admin !== true) {
+          return res.status(401).json({
+            status: 401,
+            message: 'You are not authorized for this task',
+          });
+        }
+        return pool.query(insQuery)
+          .then(newOffice => res.status(201).json({
+            status: 201,
+            data: newOffice.rows[0],
+          }))
+          .catch(e => res.send(e));
+      })
+      .catch(e => res.send(e));
   }
+  // static createOffice(req, res) {
+  //   const request = req.body;
+  //   if (!Helper.isOffice(request)) {
+  //     res.status(400).json({
+  //       status: 400,
+  //       error: 'Invalid office name/type',
+  //     });
+  //   }
+  //   const newOffice = {
+  //     id: offices.length + 1,
+  //     name: request.name,
+  //     type: request.type,
+  //   };
+  //   offices.push(newOffice);
+  //   return res.status(201).json({
+  //     status: 201,
+  //     data: newOffice,
+  //   });
+  // }
 
   static getAllOffices(req, res) {
-    return res.status(200).json({
-      status: 200,
-      data: offices,
-    });
+    const selQuery = {
+      text: 'SELECT * FROM offices',
+    };
+    return pool.query(selQuery)
+      .then(offices => res.status(200).json({
+        status: 200,
+        data: offices.rows,
+      }))
+      .catch(e => res.send(e));
   }
+  // static getAllOffices(req, res) {
+  //   return res.status(200).json({
+  //     status: 200,
+  //     data: offices,
+  //   });
+  // }
 
   static addNewCandidate(req, res) {
     const decoded = jwt.verify(req.token, process.env.SECRET_KEY);
@@ -44,7 +96,7 @@ class Office {
     const { userId } = req.params;
 
     const selQuery1 = {
-      text: 'SELECT * FROM users WHERE user_id =$1',
+      text: 'SELECT * FROM users WHERE user_ids =$1',
       values: [userId],
     };
 
@@ -81,7 +133,7 @@ class Office {
             if (decoded.is_admin !== true) {
               return res.status(401).json({
                 status: 401,
-                message: 'You need an admin right to perform this task',
+                message: 'You are not authorized for this task',
               });
             }
             return pool.query(insQuery)

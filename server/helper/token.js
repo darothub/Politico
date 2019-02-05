@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const verifyToken = (req, res, next) => {
-  const tokenHeader = req.headers.authorization;
+  const tokenHeader = req.headers['x-access-token'] || req.body.token || req.headers.authorization;
   if (typeof tokenHeader !== 'undefined') {
     const tokenBearer = tokenHeader.split(' ');
     const bearerToken = tokenBearer[1];

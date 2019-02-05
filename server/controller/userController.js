@@ -21,11 +21,11 @@ class User {
       values: [email],
     };
     const selQuery2 = {
-      text: 'SELECT * FROM users WHERE user_id =$1',
+      text: 'SELECT * FROM users WHERE user_ids =$1',
       values: [userId],
     };
     const insQuery = {
-      text: 'INSERT INTO users(user_id, first_name, last_name, other_name, email, phone_number, passport_url, password) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
+      text: 'INSERT INTO users(user_ids, first_name, last_name, other_name, email, phone_number, passport_url, password) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
       values: [userId, firstName, lastName, otherName, email, phoneNumber, passportUrl,
         bcrypt.hashSync(password, 10)],
     };
@@ -69,10 +69,9 @@ class User {
                 if (userData) {
                   const token = jwt.sign({
                     id: userData.rows[0].user_id,
-                    email: userData.rows[0].email,
                     isAdmin: userData.rows[0].is_admin,
                   }, process.env.SECRET_KEY, {
-                    expiresIn: '24h',
+                    expiresIn: '365d',
                   });
                   res.status(201).json({
                     status: 201,
@@ -117,11 +116,11 @@ class User {
 
             is_admin: data.rows[0].is_admin,
           }, process.env.SECRET_KEY, {
-            expiresIn: '24h',
+            expiresIn: '365d',
           });
-          res.status(200).json({
+          return res.status(200).json({
             status: 200,
-            data: [token, data.rows[0].email],
+            data: { token, user: data.rows[0].email },
             message: 'You have successfully signed in',
           });
         }
