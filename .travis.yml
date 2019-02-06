@@ -16,7 +16,7 @@ sudo:
 addons:
   code_climate:
     repo_token: 2f9a14edb203c6cd763f640f4051fbd78fea5e29b938dd4064f9f80805e19ac2
-    postgresql: 11.0
+ 
   
 env:
    global:
