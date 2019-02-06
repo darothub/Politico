@@ -32,9 +32,6 @@ describe('POST/api/v1/parties', () => {
       .send(newParty)
       .end((err, res) => {
         res.should.to.have.status(201);
-        // expect(decoded).be.a('string');
-        // expect(res.body).to.have.property('data');
-        // assert.isOk(res.body);
         done();
       });
   });
@@ -54,11 +51,6 @@ describe('POST/api/v1/parties', () => {
         expect(res.body).to.have.property('data');
         assert.property(res.body.data, 'id');
         assert.isOk(res.body);
-        // assert.nestedProperty(res.body, 'data.id');
-        // expect(res.body).to.have.property('name');
-        // expect(res.body).to.have.property('hqAddress');
-        // expect(res.body).to.have.property('logoUrl');
-        // assert.isNumber(res.body.id);
         done();
       });
   });
@@ -78,11 +70,6 @@ describe('POST/api/v1/parties', () => {
         expect(res.body).to.have.property('data');
         assert.property(res.body.data, 'name');
         assert.isOk(res.body);
-        // assert.nestedProperty(res.body, 'data.name');
-        // expect(res.body).to.have.property('name');
-        // expect(res.body).to.have.property('hqAddress');
-        // expect(res.body).to.have.property('logoUrl');
-        // assert.isNumber(res.body.id);
         done();
       });
   });

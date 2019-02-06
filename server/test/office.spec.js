@@ -7,7 +7,6 @@ import chaiHttp from 'chai-http';
 
 import server from '../app/app';
 
-// import offices from '../db/officeDummy';
 
 dotenv.config();
 
@@ -33,10 +32,6 @@ describe('POST/api/v1/offices', () => {
         res.should.to.have.status(201);
         expect(res.body).to.have.property('data');
         assert.isOk(res.body);
-        // expect(res.body).to.have.property('name');
-        // expect(res.body).to.have.property('hqAddress');
-        // expect(res.body).to.have.property('logoUrl');
-        // assert.isNumber(res.body.id);
       });
     done();
   });
@@ -55,10 +50,6 @@ describe('POST/api/v1/offices', () => {
         expect(res.body).to.have.property('data');
         assert.isOk(res.body);
         assert.property(res.body.data, 'id');
-        // expect(res.body).to.have.property('name');
-        // expect(res.body).to.have.property('hqAddress');
-        // expect(res.body).to.have.property('logoUrl');
-        // assert.isNumber(res.body.id);
         done();
       });
   });
@@ -77,10 +68,6 @@ describe('POST/api/v1/offices', () => {
         expect(res.body).to.have.property('data');
         assert.isOk(res.body);
         assert.property(res.body.data, 'name');
-        // expect(res.body).to.have.property('name');
-        // expect(res.body).to.have.property('hqAddress');
-        // expect(res.body).to.have.property('logoUrl');
-        // assert.isNumber(res.body.id);
         done();
       });
   });
@@ -99,10 +86,6 @@ describe('POST/api/v1/offices', () => {
         expect(res.body).to.have.property('data');
         assert.isOk(res.body);
         assert.property(res.body.data, 'type');
-        // expect(res.body).to.have.property('name');
-        // expect(res.body).to.have.property('hqAddress');
-        // expect(res.body).to.have.property('logoUrl');
-        // assert.isNumber(res.body.id);
         done();
       });
   });

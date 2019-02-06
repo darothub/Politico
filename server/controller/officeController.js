@@ -4,11 +4,10 @@ import jwt from 'jsonwebtoken';
 
 import pool from '../model/database';
 
-// import offices from '../db/officeDummy';
-
 import Helper from '../helper/util';
 
 dotenv.config();
+
 
 class Office {
   static addOffice(req, res) {

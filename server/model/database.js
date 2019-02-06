@@ -4,7 +4,6 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-process.env.NODE_ENV = 'test';
 
 let connection;
 const string = {
@@ -21,7 +20,7 @@ const stringTest = {
   host: process.env.DB_HOST,
   database: process.env.DB_NAME2,
   password: process.env.DB_PASS,
-  port: 5432,
+  port: process.env.DB_PORT2,
   max: 50,
   idleTimeoutMillis: 3000,
 };

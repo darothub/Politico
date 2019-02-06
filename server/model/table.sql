@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS testpolitico;
-CREATE DATABASE testpolitico;
-\c testpolitico
+DROP DATABASE IF EXISTS politico;
+CREATE DATABASE politico;
+\c politico
 CREATE TABLE users(
     id SERIAL,
     user_ids INTEGER NOT NULL PRIMARY KEY,

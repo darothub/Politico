@@ -1,9 +1,6 @@
 import jwt from 'jsonwebtoken';
 import pool from '../model/database';
-// import parties from '../db/dummy';
 import Helper from '../helper/util';
-
-process.env.NODE_ENV = 'test';
 
 class Party {
   static createParty(req, res) {
