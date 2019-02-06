@@ -13,7 +13,7 @@ const string = {
   database: process.env.DB_NAME,
   password: process.env.DB_PASS,
   port: process.env.DB_PORT,
-  max: 10,
+  max: 30,
   idleTimeoutMillis: 3000,
 };
 const stringTest = {

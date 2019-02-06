@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "nyc mocha --compilers js:@babel/register server/test/*.spec.js --exit --timeout 20000",
+    "test": "npm run travis && nyc mocha --compilers js:@babel/register server/test/*.spec.js --exit --timeout 20000",
     "start:dev": "npm run build && npm run serve",
     "start": "nodemon --exec babel-node server/app/app.js",
     "heroku": "node server/app/app.js",
@@ -13,6 +13,7 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "migration": "psql -U postgres -p 5433 -f server/model/table.sql",
     "seed": "babel-node server/model/seeding.js",
+    "travis": "npm run server/model/droptable && npm run server/model/createtable",
     "data:dev": "npm run migration && npm run seed"
   },
   "author": "darot",
