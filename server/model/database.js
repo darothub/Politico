@@ -20,8 +20,8 @@ const stringTest = {
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
   database: process.env.DB_NAME2,
-  password: 5432,
-  port: process.env.DB_PORT,
+  password: process.env.DB_PASS,
+  port: 5432,
   max: 50,
   idleTimeoutMillis: 3000,
 };
