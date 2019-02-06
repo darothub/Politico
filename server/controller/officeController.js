@@ -11,7 +11,7 @@ import Helper from '../helper/util';
 dotenv.config();
 
 class Office {
-  static createOffice(req, res) {
+  static addOffice(req, res) {
     const decoded = jwt.verify(req.token, process.env.SECRET_KEY);
     const { name, type } = req.body;
     const selQuery = {
@@ -52,25 +52,6 @@ class Office {
       })
       .catch(e => res.send(e));
   }
-  // static createOffice(req, res) {
-  //   const request = req.body;
-  //   if (!Helper.isOffice(request)) {
-  //     res.status(400).json({
-  //       status: 400,
-  //       error: 'Invalid office name/type',
-  //     });
-  //   }
-  //   const newOffice = {
-  //     id: offices.length + 1,
-  //     name: request.name,
-  //     type: request.type,
-  //   };
-  //   offices.push(newOffice);
-  //   return res.status(201).json({
-  //     status: 201,
-  //     data: newOffice,
-  //   });
-  // }
 
   static getAllOffices(req, res) {
     const selQuery = {
@@ -83,12 +64,6 @@ class Office {
       }))
       .catch(e => res.send(e));
   }
-  // static getAllOffices(req, res) {
-  //   return res.status(200).json({
-  //     status: 200,
-  //     data: offices,
-  //   });
-  // }
 
   static addNewCandidate(req, res) {
     const decoded = jwt.verify(req.token, process.env.SECRET_KEY);

@@ -16,7 +16,7 @@ process.env.NODE_ENV = 'test';
 chai.should();
 chai.use(chaiHttp);
 
-const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0b3NpbkB5YWhvby5jb20iLCJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNTQ5Mzc0NjE2LCJleHAiOjE1NDk0NjEwMTZ9.xeR9QBD8aFUzV0k2DckmktEPE6jLNIgP_DnDHmAGeQw';
+const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0b3NpbkB5YWhvby5jb20iLCJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNTQ5NDY2NTkzLCJleHAiOjE1ODEwMDI1OTN9.F5lFQzrNeZWFX7NOoh8gO0XxzFMXyl6_GjLczGqEG2Y';
 
 describe('POST/api/v1/offices', () => {
   it('should return 201 for new office', (done) => {
@@ -42,7 +42,7 @@ describe('POST/api/v1/offices', () => {
   });
   it('should return id for new office', (done) => {
     const newOffice = {
-      name: 'Vice President',
+      name: 'House',
       type: 'Federal',
     };
     chai.request(server)
@@ -64,8 +64,8 @@ describe('POST/api/v1/offices', () => {
   });
   it('should return property name for new office', (done) => {
     const newOffice = {
-      name: 'Vice President',
-      type: 'Federal',
+      name: 'Councillor',
+      type: 'Local Government',
     };
     chai.request(server)
       .post('/api/v1/offices')
@@ -86,8 +86,8 @@ describe('POST/api/v1/offices', () => {
   });
   it('should return property type for new office', (done) => {
     const newOffice = {
-      name: 'Vice President',
-      type: 'Federal',
+      name: 'Deputy Governor',
+      type: 'State',
     };
     chai.request(server)
       .post('/api/v1/offices')

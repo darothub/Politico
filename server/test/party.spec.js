@@ -15,7 +15,7 @@ process.env.NODE_ENV = 'test';
 chai.should();
 chai.use(chaiHttp);
 
-const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0b3NpbkB5YWhvby5jb20iLCJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNTQ5Mzc0NjE2LCJleHAiOjE1NDk0NjEwMTZ9.xeR9QBD8aFUzV0k2DckmktEPE6jLNIgP_DnDHmAGeQw';
+const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0b3NpbkB5YWhvby5jb20iLCJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNTQ5NDY2NTkzLCJleHAiOjE1ODEwMDI1OTN9.F5lFQzrNeZWFX7NOoh8gO0XxzFMXyl6_GjLczGqEG2Y';
 
 
 describe('POST/api/v1/parties', () => {
@@ -40,8 +40,8 @@ describe('POST/api/v1/parties', () => {
   });
   it('should return id for new party', (done) => {
     const newParty = {
-      name: 'APGC',
-      hqAddress: '1 Iyana Iba ',
+      name: 'PDP',
+      hqAddress: 'PDP avenue ',
       logoUrl: 'www.logo.net.png',
     };
     chai.request(server)
@@ -64,8 +64,8 @@ describe('POST/api/v1/parties', () => {
   });
   it('should return property name for new party', (done) => {
     const newParty = {
-      name: 'APGC',
-      hqAddress: '1 Iyana Iba ',
+      name: 'LP',
+      hqAddress: 'LP Avenue ',
       logoUrl: 'www.logo.net.png',
     };
     chai.request(server)
@@ -88,8 +88,8 @@ describe('POST/api/v1/parties', () => {
   });
   it('should return property hqAddress for new party', (done) => {
     const newParty = {
-      name: 'APGC',
-      hqAddress: '1 Iyana Iba ',
+      name: 'PGP',
+      hqAddress: 'PGP avenue ',
       logoUrl: 'www.logo.net.png',
     };
     chai.request(server)
@@ -108,8 +108,8 @@ describe('POST/api/v1/parties', () => {
   });
   it('should return property logoUrl for new party', (done) => {
     const newParty = {
-      name: 'APGC',
-      hqAddress: '1 Iyana Iba ',
+      name: 'BDG',
+      hqAddress: 'BDG avenue ',
       logoUrl: 'www.logo.net.png',
     };
     chai.request(server)

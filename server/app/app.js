@@ -15,7 +15,6 @@ import voteRoute from '../routes/voteRoute';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(bodyParser.json());

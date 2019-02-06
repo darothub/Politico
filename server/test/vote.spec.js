@@ -37,7 +37,7 @@ describe('POST/votes', () => {
   it('should return 400 for candidate not found', (done) => {
     const vote = {
       officeId: 2,
-      candidateId: 9003,
+      candidateId: 9004,
       voterId: 9002,
     };
     chai.request(server)

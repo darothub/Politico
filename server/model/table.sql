@@ -27,21 +27,19 @@ CREATE TABLE offices(
 
 CREATE TABLE candidates(
     id SERIAL,
-    office INTEGER NOT NULL REFERENCES offices(id),
+    office INTEGER NOT NULL,
     party INTEGER NOT NULL,
-    candidate INTEGER REFERENCES users(user_ids)
+    candidate INTEGER,
+    PRIMARY KEY(candidate, office)
 );
 
 CREATE TABLE votes(
     id SERIAL,
-    office INTEGER NOT NULL REFERENCES offices(id),
+    office INTEGER NOT NULL,
     candidate INTEGER NOT NULL,
-    voter INTEGER REFERENCES users(user_ids)
+    voter INTEGER,
+    PRIMARY KEY(voter, office)
 );
 
-
-INSERT INTO offices(name, type) VALUES('President', 'Federal'),('Senator', 'Federal');
-INSERT INTO parties(name, hqAddress, logoUrl) VALUES('APC', '1, APC avenue', 'www.apc.com.jpg'),
-('APGA', '1, APGA avenue', 'www.apga.com.jpg');
 
 
