@@ -21,8 +21,8 @@ const stringTest = {
   host: process.env.DB_HOST,
   database: process.env.DB_NAME2,
   password: process.env.DB_PASS,
-  port: process.env.DB_PORT,
-  max: 10,
+  port: 5432,
+  max: 30,
   idleTimeoutMillis: 3000,
 };
 if (process.env.NODE_ENV === 'production') {
