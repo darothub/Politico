@@ -10,6 +10,8 @@ install:
   - npm install
 services:
   - postgresql
+sudo:
+  -false
 
 addons:
   code_climate:
