@@ -23,10 +23,13 @@ env:
     process.env.NODE_ENV = test
 before_script:
   - npm -g install nyc
+  - psql -c 'create database testpolitico;' -U postgres
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
-  - psql -c 'create database testpolitico;' -U postgres
+
+  script: 
+    - npm run test
 
 after_script:
   - codeclimate-test-reporter < ./coverage/lcov.info
