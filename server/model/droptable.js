@@ -12,7 +12,7 @@ pool.query(userDropQuery)
   .catch(e => console.error(e.stack));
 
 const officeDropQuery = {
-  text: 'DROP TABLE IF EXISTS users;',
+  text: 'DROP TABLE IF EXISTS offices;',
 };
 pool.query(officeDropQuery)
   .then(console.log('offices table dropped'))
@@ -35,5 +35,5 @@ const votesDropQuery = {
   text: 'DROP TABLE IF EXISTS votes;',
 };
 pool.query(votesDropQuery)
-  .then(console.log('parties table dropped'))
+  .then(console.log('votes table dropped'))
   .catch(e => console.error(e.stack));

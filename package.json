@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "tests": "npm run droptable && npm run createtable && npm run seed && nyc mocha --compilers js:@babel/register server/test/*.spec.js --exit --timeout 20000",
+    "test": "npm run droptable && npm run createtable && npm run seed && nyc mocha --compilers js:@babel/register server/test/*.spec.js --exit --timeout 20000",
     "start:dev": "npm run build && npm run serve",
     "start": "nodemon --exec babel-node server/app/app.js",
     "heroku": "node server/app/app.js",
@@ -16,7 +16,7 @@
     "droptable": "babel-node server/model/droptable",
     "createtable": "babel-node server/model/createtable",
     "data:dev": "npm run migration && npm run seed",
-    "test": "nyc mocha --compilers js:@babel/register server/test/*.spec.js --exit --timeout 20000"
+    "tests": "nyc mocha --compilers js:@babel/register server/test/*.spec.js --exit --timeout 20000"
   },
   "author": "darot",
   "license": "ISC",
