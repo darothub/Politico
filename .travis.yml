@@ -26,7 +26,7 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
   - psql -c 'create database testpolitico;' -U postgres
-  - npm run data:dev
+
 after_script:
   - codeclimate-test-reporter < ./coverage/lcov.info
 
