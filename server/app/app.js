@@ -34,8 +34,8 @@ app.get('/', (req, res) => {
 
 app.use((req, res, next) => {
   const obj = { success: false };
-  if (req.method === 'POST') {
-    obj.msg = 'POST method not supported';
+  if (req.method) {
+    obj.msg = `${req.method} method not supported`;
   } else {
     obj.msg = 'Invalid URL';
   }
