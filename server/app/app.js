@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
 app.use((req, res, next) => {
   const obj = { success: false };
   if (req.method) {
-    obj.msg = `${req.method} method not supported`;
+    obj.msg = 'Request is not supported';
   } else {
     obj.msg = 'Invalid URL';
   }
@@ -56,6 +56,7 @@ app.use((error, req, res, next) => {
       message: 'Invalid token',
     });
   }
+
   if (error.status === 404) {
     res.json({
       status: 404,

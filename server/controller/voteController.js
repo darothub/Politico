@@ -63,13 +63,13 @@ class Vote {
                     status: 200,
                     data: newVote.rows[0],
                   }))
-                  .catch(e => res.send(e));
+                  .catch(e => res.json({ error: 'Database error', code: e.code }));
               })
-              .catch(e => res.send(e));
+              .catch(e => res.json({ error: 'Database error', code: e.code }));
           })
-          .catch(e => res.send(e));
+          .catch(e => res.json({ error: 'Database error', code: e.code }));
       })
-      .catch(e => res.send(e));
+      .catch(e => res.json({ error: 'Database error', code: e.code }));
   }
 }
 
