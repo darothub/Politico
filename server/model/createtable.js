@@ -1,7 +1,7 @@
 import pool from './database';
 
 const userCreateQuery = {
-  text: 'CREATE TABLE users(id SERIAL PRIMARY KEY, first_name VARCHAR NOT NULL, last_name VARCHAR NOT NULL, other_name VARCHAR NOT NULL, email VARCHAR NOT NULL, phone_number VARCHAR NOT NULL, password VARCHAR NOT NULL, passport_url VARCHAR NOT NULL, is_admin BOOLEAN DEFAULT false)',
+  text: 'CREATE TABLE users(id SERIAL, user_ids INTEGER NOT NULL PRIMARY KEY, first_name VARCHAR NOT NULL, last_name VARCHAR NOT NULL, other_name VARCHAR NOT NULL, email VARCHAR NOT NULL, phone_number VARCHAR NOT NULL, password VARCHAR NOT NULL, passport_url VARCHAR NOT NULL, is_admin BOOLEAN DEFAULT false)',
 };
 pool.query(userCreateQuery)
   .then(console.log('Users table created'))
