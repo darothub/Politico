@@ -15,7 +15,6 @@ import voteRoute from '../routes/voteRoute';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(bodyParser.json());
@@ -34,13 +33,40 @@ app.get('/', (req, res) => {
 });
 
 app.use((req, res, next) => {
-  const error = new Error('Not found');
-  error.status = 404;
-  next(error);
+  const obj = { success: false };
+  if (req.method) {
+    obj.msg = `${req.method} method not supported`;
+  } else {
+    obj.msg = 'Invalid URL';
+  }
+  res.status(404).json(obj);
+  next();
 });
 
 app.use((error, req, res, next) => {
-  res.status(error.status || 500).json({
+  if (error.message === 'jwt must be provided') {
+    res.status(401).json({
+      status: 401,
+      message: 'You are not authorized',
+    });
+  }
+  if (error.message === 'invalid signature') {
+    res.status(400).json({
+      status: 400,
+      message: 'Invalid token',
+    });
+  }
+  if (error.status === 404) {
+    res.json({
+      status: 404,
+      message: 'Resource not found',
+    });
+  }
+  next();
+});
+
+app.use((error, req, res, next) => {
+  res.sendStatus(error.status || 500).json({
     status: error.status,
     message: error.message,
   });

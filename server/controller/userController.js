@@ -10,6 +10,7 @@ import Helper from '../helper/util';
 
 dotenv.config();
 
+
 class User {
   static signup(req, res) {
     const {
@@ -21,11 +22,11 @@ class User {
       values: [email],
     };
     const selQuery2 = {
-      text: 'SELECT * FROM users WHERE user_id =$1',
+      text: 'SELECT * FROM users WHERE user_ids =$1',
       values: [userId],
     };
     const insQuery = {
-      text: 'INSERT INTO users(user_id, first_name, last_name, other_name, email, phone_number, passport_url, password) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
+      text: 'INSERT INTO users(user_ids, first_name, last_name, other_name, email, phone_number, passport_url, password) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
       values: [userId, firstName, lastName, otherName, email, phoneNumber, passportUrl,
         bcrypt.hashSync(password, 10)],
     };
@@ -69,17 +70,21 @@ class User {
                 if (userData) {
                   const token = jwt.sign({
                     id: userData.rows[0].user_id,
-                    email: userData.rows[0].email,
                     isAdmin: userData.rows[0].is_admin,
                   }, process.env.SECRET_KEY, {
-                    expiresIn: '24h',
+                    expiresIn: '365d',
                   });
                   res.status(201).json({
                     status: 201,
-                    data: [token, userData.rows[0].user_id, userData.rows[0].first_name,
-                      userData.rows[0].last_name, userData.rows[0].other_name,
-                      userData.rows[0].passport_url, userData.rows[0].email,
-                      userData.rows[0].is_admin],
+                    data: {
+                      token,
+                      user_ids: userData.rows[0].user_id,
+                      firstName: userData.rows[0].first_name,
+                      lastName: userData.rows[0].last_name,
+                      otherName: userData.rows[0].other_name,
+                      passport: userData.rows[0].passport_url,
+                      email: userData.rows[0].email,
+                    },
                   });
                 }
               })
@@ -113,15 +118,20 @@ class User {
         if (bcrypt.compareSync(req.body.password, data.rows[0].password)) {
           const token = jwt.sign({
             id: data.rows[0].id,
-            email: data.rows[0].email,
-
             is_admin: data.rows[0].is_admin,
           }, process.env.SECRET_KEY, {
-            expiresIn: '24h',
+            expiresIn: '365d',
           });
-          res.status(200).json({
+          return res.status(200).json({
             status: 200,
-            data: [token, data.rows[0].email],
+            data: {
+              token,
+              user_ids: data.rows[0].user_id,
+              firstName: data.rows[0].first_name,
+              lastName: data.rows[0].last_name,
+              otherName: data.rows[0].other_name,
+              email: data.rows[0].email,
+            },
             message: 'You have successfully signed in',
           });
         }
