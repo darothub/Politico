@@ -32,6 +32,16 @@ app.get('/', (req, res) => {
   });
 });
 
+app.use((req, res, next) => {
+  const obj = { success: false };
+  if (req.method === 'POST') {
+    obj.msg = 'POST method not supported';
+  } else {
+    obj.msg = 'Invalid URL';
+  }
+  res.status(404).json(obj);
+  next();
+});
 
 app.use((error, req, res, next) => {
   if (error.message === 'jwt must be provided') {
@@ -44,6 +54,12 @@ app.use((error, req, res, next) => {
     res.status(400).json({
       status: 400,
       message: 'Invalid token',
+    });
+  }
+  if (error.status === 404) {
+    res.json({
+      status: 404,
+      message: 'Resource not found',
     });
   }
   next();
