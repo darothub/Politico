@@ -4,8 +4,8 @@ import bcrypt from 'bcryptjs';
 import pool from './database';
 
 const user1 = {
-  text: 'INSERT INTO users(first_name, last_name, other_name, email, phone_number, passport_url, password, is_admin) VALUES($1, $2, $3, $4, $5, $6, $7, $8)',
-  values: ['Tosin', 'Tosin', 'Tosin', 'tosin@yahoo.com', '080tosin', 'tosin.png', bcrypt.hashSync('Youngster1', 10), 'true'],
+  text: 'INSERT INTO users(user_ids, first_name, last_name, other_name, email, phone_number, passport_url, password, is_admin) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)',
+  values: ['9001', 'Tosin', 'Tosin', 'Tosin', 'tosin@yahoo.com', '080tosin', 'tosin.png', bcrypt.hashSync('Youngster1', 10), 'true'],
 };
 
 pool.query(user1)
@@ -14,8 +14,8 @@ pool.query(user1)
 
 const user2 = {
 
-  text: 'INSERT INTO users(first_name, last_name, other_name, email, phone_number, passport_url, password, is_admin) VALUES($1, $2, $3, $4, $5, $6, $7, $8)',
-  values: ['Tola', 'Tola', 'Tola', 'tola@yahoo.com', '080tola', 'tola.png', bcrypt.hashSync('Youngster1', 10), 'false'],
+  text: 'INSERT INTO users(user_ids, first_name, last_name, other_name, email, phone_number, passport_url, password, is_admin) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)',
+  values: ['9002', 'Tola', 'Tola', 'Tola', 'tola@yahoo.com', '080tola', 'tola.png', bcrypt.hashSync('Youngster1', 10), 'false'],
 };
 
 pool.query(user2)
@@ -24,8 +24,8 @@ pool.query(user2)
 
 const user3 = {
 
-  text: 'INSERT INTO users(first_name, last_name, other_name, email, phone_number, passport_url, password, is_admin) VALUES($1, $2, $3, $4, $5, $6, $7, $8)',
-  values: ['Tolas', 'Tolas', 'Tolas', 'tolas@yahoo.com', '080tolas', 'tolas.png', bcrypt.hashSync('Youngster1', 10), 'false'],
+  text: 'INSERT INTO users(user_ids, first_name, last_name, other_name, email, phone_number, passport_url, password, is_admin) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)',
+  values: ['9003', 'Tolas', 'Tolas', 'Tolas', 'tolas@yahoo.com', '080tolas', 'tolas.png', bcrypt.hashSync('Youngster1', 10), 'false'],
 };
 
 pool.query(user3)
