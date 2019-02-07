@@ -16,6 +16,7 @@
     "seed": "babel-node server/model/seeding.js",
     "droptable": "babel-node server/model/droptable",
     "createtable": "babel-node server/model/createtable",
+    "heroku-postbuild": "npm run droptable && npm run createtable",
     "data:dev": "npm run migration && npm run seed",
     "tests": "nyc mocha --compilers js:@babel/register server/test/*.spec.js --exit --timeout 20000"
   },
