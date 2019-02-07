@@ -32,12 +32,6 @@ app.get('/', (req, res) => {
   });
 });
 
-app.use((req, res, next) => {
-  const error = new Error('Not found');
-  error.status = 404;
-  next(error);
-});
-
 
 app.use((error, req, res, next) => {
   if (error.message === 'jwt must be provided') {
@@ -46,8 +40,15 @@ app.use((error, req, res, next) => {
       message: 'You are not authorized',
     });
   }
+  if (error.message === 'invalid signature') {
+    res.status(400).json({
+      status: 400,
+      message: 'Invalid token',
+    });
+  }
   next();
 });
+
 app.use((error, req, res, next) => {
   res.sendStatus(error.status || 500).json({
     status: error.status,

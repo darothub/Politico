@@ -10,6 +10,7 @@ import Helper from '../helper/util';
 
 dotenv.config();
 
+
 class User {
   static signup(req, res) {
     const {
@@ -117,15 +118,20 @@ class User {
         if (bcrypt.compareSync(req.body.password, data.rows[0].password)) {
           const token = jwt.sign({
             id: data.rows[0].id,
-            email: data.rows[0].email,
-
             is_admin: data.rows[0].is_admin,
           }, process.env.SECRET_KEY, {
             expiresIn: '365d',
           });
           return res.status(200).json({
             status: 200,
-            data: { token, user: data.rows[0].email },
+            data: {
+              token,
+              user_ids: data.rows[0].user_id,
+              firstName: data.rows[0].first_name,
+              lastName: data.rows[0].last_name,
+              otherName: data.rows[0].other_name,
+              email: data.rows[0].email,
+            },
             message: 'You have successfully signed in',
           });
         }

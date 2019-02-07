@@ -14,6 +14,12 @@ class Party {
       text: 'INSERT INTO parties(name, hqAddress, logoUrl) VALUES($1, $2, $3) RETURNING *',
       values: [name, hqAddress, logoUrl],
     };
+    if (decoded.is_admin !== true) {
+      return res.status(401).json({
+        status: 401,
+        message: 'You are not authorized for this task',
+      });
+    }
 
     if (!Helper.isParty(req.body)) {
       res.status(400).json({
@@ -27,12 +33,6 @@ class Party {
           return res.status(409).send({
             status: 409,
             message: 'Party exist already',
-          });
-        }
-        if (decoded.is_admin !== true) {
-          return res.status(401).json({
-            status: 401,
-            message: 'You are not authorized for this task',
           });
         }
         return pool.query(insQuery)

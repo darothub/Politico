@@ -8,7 +8,6 @@ import Helper from '../helper/util';
 
 dotenv.config();
 
-
 class Office {
   static addOffice(req, res) {
     const decoded = jwt.verify(req.token, process.env.SECRET_KEY);

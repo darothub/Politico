@@ -4,7 +4,6 @@ import pool from '../model/database';
 
 import Helper from '../helper/util';
 
-
 dotenv.config();
 
 class Vote {
