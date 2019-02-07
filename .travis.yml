@@ -6,17 +6,29 @@ node_js:
 cache:
   directories:
     - "node_modules"
+install:
+  - npm install
+services:
+  - postgresql
+sudo:
+  -false
 
 addons:
   code_climate:
     repo_token: 2f9a14edb203c6cd763f640f4051fbd78fea5e29b938dd4064f9f80805e19ac2
+ 
+  
+env:
+   global:
+    process.env.NODE_ENV = test
 
-    
 before_script:
   - npm -g install nyc
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
+  - psql -c 'create database testpolitico;' -U postgres
+
 after_script:
   - codeclimate-test-reporter < ./coverage/lcov.info
 

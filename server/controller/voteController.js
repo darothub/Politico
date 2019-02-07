@@ -1,14 +1,17 @@
+import dotenv from 'dotenv';
+
 import pool from '../model/database';
 
 import Helper from '../helper/util';
 
+dotenv.config();
 
 class Vote {
   static addNewVote(req, res) {
     const { officeId, voterId, candidateId } = req.body;
 
     const selQuery1 = {
-      text: 'SELECT * FROM users WHERE user_id =$1',
+      text: 'SELECT * FROM users WHERE user_ids =$1',
       values: [voterId],
     };
 
@@ -34,8 +37,8 @@ class Vote {
     return pool.query(selQuery1)
       .then((voter) => {
         if (voter.rowCount === 0) {
-          return res.status(400).json({
-            status: 400,
+          return res.status(404).json({
+            status: 404,
             message: 'Voter is not registered',
           });
         }
@@ -56,8 +59,8 @@ class Vote {
                   });
                 }
                 return pool.query(insQuery)
-                  .then(newVote => res.status(201).json({
-                    status: 201,
+                  .then(newVote => res.status(200).json({
+                    status: 200,
                     data: newVote.rows[0],
                   }))
                   .catch(e => res.send(e));

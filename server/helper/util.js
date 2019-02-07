@@ -58,6 +58,11 @@ class Helper {
     const validUserId = /^-?[\d.]+(?:e-?\d+)?$/.test(user.userId);
     return validPhoneNumber && validUserId;
   }
+
+  static isNumber(user) {
+    const id = /^-?[\d.]+(?:e-?\d+)?$/.test(user.id);
+    return id;
+  }
 }
 
 export default Helper;
