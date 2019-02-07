@@ -41,5 +41,6 @@ CREATE TABLE votes(
     PRIMARY KEY(voter, office)
 );
 
-
-
+INSERT INTO offices(name, type) VALUES('President', 'Federal'),('Senator', 'Federal');
+INSERT INTO parties(name, hqAddress, logoUrl) VALUES('APC', '1, APC avenue', 'www.apc.com.jpg'),
+('APGA', '1, APGA avenue', 'www.apga.com.jpg');
