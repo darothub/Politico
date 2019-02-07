@@ -21,7 +21,7 @@ addons:
 env:
    global:
     process.env.NODE_ENV = test
-    process.env.
+
 before_script:
   - npm -g install nyc
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
