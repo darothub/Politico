@@ -75,10 +75,15 @@ class User {
                   });
                   res.status(201).json({
                     status: 201,
-                    data: [token, userData.rows[0].user_id, userData.rows[0].first_name,
-                      userData.rows[0].last_name, userData.rows[0].other_name,
-                      userData.rows[0].passport_url, userData.rows[0].email,
-                      userData.rows[0].is_admin],
+                    data: {
+                      token,
+                      user_ids: userData.rows[0].user_id,
+                      firstName: userData.rows[0].first_name,
+                      lastName: userData.rows[0].last_name,
+                      otherName: userData.rows[0].other_name,
+                      passport: userData.rows[0].passport_url,
+                      email: userData.rows[0].email,
+                    },
                   });
                 }
               })
