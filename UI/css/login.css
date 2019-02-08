@@ -118,7 +118,7 @@ nav>.nav-list-container{
    width: 95%;
    height: 40px;
    float: left;
-   margin-top: 20px;
+   margin-top: 10px;
   
 }
 
@@ -131,7 +131,7 @@ nav>.nav-list-container{
 .form-wrapper #checkbox-label{
     width:100px;
     height: 10px;
-    margin-top:15px;
+    margin-top:5px;
     float: left;
     font-size: 12px;
 }
@@ -241,7 +241,7 @@ footer{
     .loginform{
         grid-area: cont;
         width: 350px;
-        height: 500px;
+        height: auto;
         margin: 30px auto;
         background-color: white;
         border: 2px solid #14AF22;
@@ -342,8 +342,8 @@ footer{
     }
     .loginform{
         grid-area: cont;
-        width: 350px;
-        height: 500px;
+        width: 400px;
+        height: auto;
         margin-top: 30px;
         margin-bottom: 10px;
         background-color: white;
