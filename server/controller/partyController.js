@@ -40,9 +40,9 @@ class Party {
             status: 201,
             data: newParty.rows[0],
           }))
-          .catch(e => res.send(e));
+          .catch(e => res.json({ error: 'Database error', code: e.code }));
       })
-      .catch(e => res.send(e));
+      .catch(e => res.json({ error: 'Database error', code: e.code }));
   }
 
   static getAllParties(req, res) {
@@ -54,7 +54,7 @@ class Party {
         status: 200,
         data: partiess.rows,
       }))
-      .catch(e => res.send(e));
+      .catch(e => res.json({ error: 'Database error', code: e.code }));
   }
 
   static getPartyById(req, res) {
@@ -82,7 +82,7 @@ class Party {
           data: party.rows[0],
         });
       })
-      .catch(e => res.send(e));
+      .catch(e => res.json({ error: 'Database error', code: e.code }));
   }
 
   static editPartyName(req, res) {
@@ -125,16 +125,9 @@ class Party {
               New_name: newParty.rows[0].name,
             },
           }))
-          .catch(e => console.log(e));
+          .catch(e => res.json({ error: 'Database error', code: e.code }));
       })
-      .catch(e => console.log(e));
-
-    // party.name = req.body.name;
-    // const { id, name } = party;
-    // return res.status(200).json({
-    //   status: 200,
-    //   data: { id, name },
-    // });
+      .catch(e => res.json({ error: 'Database error', code: e.code }));
   }
 
   static deleteParty(req, res) {
@@ -175,9 +168,9 @@ class Party {
               message: `${delParty.rows[0].name} has been deleted`,
             },
           }))
-          .catch(e => res.send(e));
+          .catch(e => res.json({ error: 'Database error', code: e.code }));
       })
-      .catch(e => res.send(e));
+      .catch(e => res.json({ error: 'Database error', code: e.code }));
   }
 }
 

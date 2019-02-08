@@ -46,9 +46,9 @@ class Office {
             status: 201,
             data: newOffice.rows[0],
           }))
-          .catch(e => res.send(e));
+          .catch(e => res.json({ error: 'Database error', code: e.code }));
       })
-      .catch(e => res.send(e));
+      .catch(e => res.json({ error: 'Database error', code: e.code }));
   }
 
   static getAllOffices(req, res) {
@@ -60,7 +60,7 @@ class Office {
         status: 200,
         data: offices.rows,
       }))
-      .catch(e => res.send(e));
+      .catch(e => res.json({ error: 'Database error', code: e.code }));
   }
 
   static addNewCandidate(req, res) {
@@ -114,11 +114,11 @@ class Office {
                 status: 201,
                 data: newCandidate.rows[0],
               }))
-              .catch(e => res.send(e));
+              .catch(e => res.json({ error: 'Database error', code: e.code }));
           })
-          .catch(e => res.send(e));
+          .catch(e => res.json({ error: 'Database error', code: e.code }));
       })
-      .catch(e => res.send(e));
+      .catch(e => res.json({ error: 'Database error', code: e.code }));
   }
 
   static getOfficeResult(req, res) {
@@ -132,7 +132,35 @@ class Office {
         status: 200,
         data: result.rows,
       }))
-      .catch(e => res.send(e));
+      .catch(e => res.json({ error: 'Database error', code: e.code }));
+  }
+
+  static getOfficeById(req, res) {
+    const { id } = req.params;
+    const selQuery1 = {
+      text: 'SELECT * FROM offices WHERE id=$1',
+      values: [id],
+    };
+    if (!Helper.isNumber(req.params)) {
+      res.status(400).json({
+        status: 400,
+        message: 'Invalid office id',
+      });
+    }
+    return pool.query(selQuery1)
+      .then((office) => {
+        if (office.rowCount === 0) {
+          return res.status(404).json({
+            status: 404,
+            message: 'office not found',
+          });
+        }
+        return res.status(200).json({
+          status: 200,
+          data: office.rows[0],
+        });
+      })
+      .catch(e => res.json({ error: 'Database error', code: e.code }));
   }
 }
 
