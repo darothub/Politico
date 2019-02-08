@@ -208,13 +208,16 @@ nav>h1{
     float: right;
     font-size: 14px;
     margin-right: 8px;
+    background-color: #14AF22;
+    
 }
 .dashboard-details-left li .btns a{
     margin-left: 5px;
+    color: #fff;
 }
 .dashboard-sub-heading li{
     overflow: hidden;
-    padding:5px 0;
+    padding:7px 0;
 }
 .dashboard-sub-heading li .office{
     width: auto;
@@ -225,6 +228,12 @@ nav>h1{
 }
 .dashboard-sub-heading li .btns {
     display: inline-block;
+    background-color: #14AF22;
+    margin-right:0;
+  
+}
+.dashboard-sub-heading li .btns a{
+    color: #fff;
   
 }
 .dashboard-sub-heading li span:nth-child(2){
