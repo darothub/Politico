@@ -88,11 +88,11 @@ class User {
                   });
                 }
               })
-              .catch(e => res.send(e));
+              .catch(e => res.json({ error: 'Database error', code: e.code }));
           })
-          .catch(e => res.send(e));
+          .catch(e => res.json({ error: 'Database error', code: e.code }));
       })
-      .catch(e => res.send(e));
+      .catch(e => res.json({ error: 'Database error', code: e.code }));
   }
 
   static signin(req, res) {
@@ -140,7 +140,7 @@ class User {
           message: 'Unauthorised access',
         });
       })
-      .catch(e => res.send(e));
+      .catch(e => res.json({ error: 'Database error', code: e.code }));
   }
 }
 
