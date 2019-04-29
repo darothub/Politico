@@ -20,6 +20,19 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  if(req.method === 'OPTIONS'){
+    res.header('Access-Control-Allow-Methods', 'PUT, POST, DELETE, PATCH, GET');
+    return res.status(200).json({});
+  }
+  next();
+})
+
 app.use(partyRoutes);
 app.use(officeRoutes);
 app.use(userRoute);
@@ -31,6 +44,7 @@ app.get('/', (req, res) => {
     message: 'Hello World',
   });
 });
+
 
 app.use((req, res, next) => {
   const obj = { success: false };
