@@ -33,7 +33,7 @@
                         <label id="username-label">Username</label><br>
                         <input type="text" placeholder="username" id="username" class="input">
                         <label id="password-label">Password</label>
-                        <input type="password" placeholder="Enter the password" id="password" class="input"><br>
+                        <input type="password" placeholder="Enter the password" id="passwords" class="input"><br>
                         <input type="checkbox" id="checkbox"><p id="checkbox-label">Remember me</p>
                         <div class="btn"><a href="profile.html" id="enter">Sign in</a></div>
                     
@@ -43,20 +43,23 @@
                     <h3 >Sign up here</h3>
                     <form>
                         <label id="username-label"> First name:</label><br>
-                        <input type="text" placeholder="First name" id="username" class="input" required>
-                        <label id="username-label"> LastFname:</label><br>
-                        <input type="text" placeholder="Last name" id="username" class="input" required>
+                        <input type="text" placeholder="First name" id="firstName" class="input" required>
+                        <label id="username-label"> Last name:</label><br>
+                        <input type="text" placeholder="Last name" id="lastName" class="input" required>
                         <label id="username-label"> Other name</label><br>
-                        <input type="text" placeholder="Other name" id="username" class="input" required>
+                        <input type="text" placeholder="Other name" id="otherName" class="input" required>
                         <label id="username-label"> Email address:</label><br>
-                        <input type="text" placeholder="Email address" id="username" class="input" required>
+                        <input type="text" placeholder="Email address" id="eAddress" class="input" required>
                         <label id="password-label">Password</label>
                         <input type="password" placeholder="Enter the password" id="password" class="input"><br>
-                        <label id="cpassword-label">Confirm password</label>
-                        <input type="password" placeholder="Enter the password" id="password" class="input"><br>
-                        <input type="file" name="pic" accept="image/*">
-                        <input type="checkbox" id="checkbox"><p id="checkbox-label">Remember me</p>
-                        <div class="btn"><a href="#" id="enter">Sign up</a></div>
+                        <input type="file" name="pic" id="user-image" accept="image/*"> 
+                        <label id="user-id-label"> User ID 
+                            <input type="text" placeholder="Enter ID" id="user-id" class="input">
+                        </label> <br>
+                        <label id="phone-label"> Phone number
+                            <input type="number" placeholder="phone number" id="phone" class="input">
+                        </label>
+                        <div class="btn" id="signup-btn"><a href="" id="enter">Sign up</a></div>
                         
                         
                         
@@ -81,6 +84,7 @@
         </footer>
     </section>
 <script src="js/login.js"></script>
+<script src="fetch/signup.js"></script>
    
 </body>
 </html>
