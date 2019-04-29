@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Offices|Politico</title>
+    <title>PartyReg|Politico</title>
     <link rel="stylesheet" href="css/offices-form.css">
 </head>
 <body>
@@ -44,15 +44,13 @@
                     </div>
                     <div class="form-wrapper" id="form-wrap1">
                         <h3 style="display:none;">Sign in here</h3>
-                        <form>
-                            <label id="username-label">Political Party:</label><br>
-                            <input type="text" placeholder="President" id="username" class="input">
+                        <form id="formData">
+                            <label id="username-label">Party name:</label><br>
+                            <input type="text" placeholder="PGG" id="partyname" class="input">
                             <label id="username-label">Party ID:</label>
-                            <input type="text" placeholder="Office ID" id="office-id" class="input"><br>
-                            <label id="username-label">Head Office:</label>
-                            <input type="text" placeholder="E.g Lagos" id="federal" class="input"><br>
-                            <label id="username-label">City:</label>
-                            <input type="text" placeholder="E.g Lagos" id="federal" class="input"><br>
+                            <input type="text" placeholder="Office ID" id="party-id" class="input"><br>
+                            <label id="username-label">Head-quarters address:</label>
+                            <input type="text" placeholder="E.g Lagos" id="address" class="input"><br>
                             <label id="party-logo">Party logo:</label>
                             <input type="file" name="pic" accept="image/*">
                             <div class="btn"><a href="#" id="enter">Submit</a></div>
@@ -109,7 +107,7 @@
             
         </footer>
     </section>
-
+    <script src="fetch/party.js"></script>
     <script src="js/officespage.js"></script>
 </body>
 </html>
