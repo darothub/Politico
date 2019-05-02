@@ -1,37 +1,23 @@
 import express from 'express';
-
 import bodyParser from 'body-parser';
-
 import morgan from 'morgan';
-
+import cors from 'cors';
+import errorhandler from 'errorhandler';
 import partyRoutes from '../routes/partyRoute';
-
 import officeRoutes from '../routes/officeRoute';
-
 import userRoute from '../routes/userRoute';
-
 import voteRoute from '../routes/voteRoute';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(errorhandler());
+app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
-  if(req.method === 'OPTIONS'){
-    res.header('Access-Control-Allow-Methods', 'PUT, POST, DELETE, PATCH, GET');
-    return res.status(200).json({});
-  }
-  next();
-})
 
 app.use(partyRoutes);
 app.use(officeRoutes);
